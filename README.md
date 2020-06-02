@@ -1,5 +1,7 @@
 # Slutprojekt - Utveckling av Webbapplikationer och Agil utveckling
 
+av Fabian, Ivan G och Oliver
+
 ## Arbetssätt
 
 Samla era erfarenheter från Kanban, Scrum och diskussionerna av Modern Agile och kom överens i gruppen vilka delar och hur ni ska inkorporera detta i erat arbete. Dokumentera vad ni kommer överens om i README.md i erat repository.
