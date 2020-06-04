@@ -1,15 +1,32 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
+import Vue from "vue";
+import Vuex from "vuex";
+import Api from "@/api/api.js"
 
-Vue.use(Vuex)
+Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
+    products: [],
   },
   mutations: {
+    save_products(state, products) {
+      console.log('test from store');
+      state.products = products;
+    },
   },
   actions: {
+    loadProducts({ commit }) {
+      Api.get("products")
+        .then((result) => {
+          commit("save_products", result.data);
+        })
+        .catch((error) => {
+          throw new Error(`API ${error}`);
+        });
+    }
   },
-  modules: {
-  }
-})
+  getters : {
+
+  },
+  modules: {},
+});
