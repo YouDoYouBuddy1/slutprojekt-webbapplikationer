@@ -4,186 +4,21 @@
   
       <p>This is the product list page</p>
       <div class="container"> 
-      <div class="header"><h1> Title: {{product.title}}</h1></div>
-      <div class="sidebar">
-        <span class="category">Category: {{product.category}}</span>
-        <span class="longDesc">Long description{{product.longDesc}}</span>
-        <span class="price">Price: {{product.price}}</span>
-        
-        
-        </div>
-
-
-      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-            
-  
-            <ol class="carousel-indicators">
-              <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-              <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-              <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-            </ol>
-
-
-            <div class="carousel-inner">
-              
-              <div class="carousel-item active">
-              
-                <img src="../store/assets/hoodie-ash.png" class="d-block w-100" alt="b">
-            </div>
-              
-
-
-            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="sr-only">Next</span>
-            </a>
-          </div>
-        <div class="footer">Footer</div>
-        
-        </div>
-        
-        
-
- 
+      <Item></Item>
+         
 
     </div>
   </div>
 </template>
 
 <script>
-// import ItemViews from './productItems/Item.vue';
+import Item from './prduct_pres/Item.vue'
 
 export default {
   
-  data(){
-    return{
-      product:
-        { 
-          title:"Tricky",
-          price: 799, 
-
-          shortDesc:"Unisex",
-          category:"board",
-          longDesc:"Skate ipsum dolor sit amet, 50-50 Sidewalk Surfer nose bump kickflip bruised heel fakie berm soul skate. Bluntslide transition nollie hard flip bank pressure flip ho-ho. Steps rip grip nosepicker roll-in yeah 540 pump. ",
-          imgFile:"skateboard-generic.png",
-          serial:"231874871397182",
-          _id:"3xRRf0wWEzJCwCWo"
-      }
-
-    }
-
-  },
-  // components:{
-  //   ItemViews: ItemViews
-  // }
-
-
-
-
-}
-
-
-
-
-
-</script>
-
-
-<style>
-
-
-
   
-  * {
-    
-    padding:0;
-    margin:0;
-   border: 1px solid black;
+  components:{
+    Item
   }
-  body{
-    border: 1px solid black;
-    width: fit-content;
-    padding: 100px;
-  }
-
-
-  .container{
-    background-color: #eee;
-    border: none;
-    margin: 50px;
-    padding:20px;
-    width: 1100px;
-    height: 900px;
-    
-    border: 1px solid black;
-    display: grid;
-    grid-template-columns: 4fr 2fr;
-    grid-template-rows: .5fr 3fr 1fr;
-    gap: 10px;
-    grid-template-areas: 
-        " header ."
-       " carousel sidebar"
-      " footer sidebar";
-  }
-
-
-  .header{
-    grid-area:header;
-    border: 1px solid blue;
-  }
-  .carousel{
-    grid-area: carousel;
-    border: 1px solid black;
-  }  
-
-
-
-
-  .sidebar{
-    grid-area: sidebar;
-
-    display: grid;
-    border: 1px solid black;
-
-    row-gap: 10px;;
-    
-  }
-
-  .carousel-indicators{
-    border: 1px solid red;
-  }
-
-  carousel-item{
-    
-    height: fit-content;
-    width: fit-content;
-    
-  }
-  .footer{
-    grid-area: footer;
-    height: fit-content;
-    border: 1px solid green;
-  }
-
-  .img{
-    color:red;
-  }
-</style>
-
-/**
-* {"title":"Tricky","price":799,"shortDesc":"Unisex","category":"board","longDesc":"Skate ipsum dolor sit amet, 50-50 Sidewalk Surfer nose bump kickflip bruised heel fakie berm soul skate. Bluntslide transition nollie hard flip bank pressure flip ho-ho. Steps rip grip nosepicker roll-in yeah 540 pump. ","imgFile":"skateboard-generic.png","serial":"231874871397182","_id":"3xRRf0wWEzJCwCWo"}
-* {"title":"Awesome","price":799,"shortDesc":"Unisex","category":"board","longDesc":"Axle crailtap fastplant dude regular footed helipop impossible. Wax Jimmy'Z half-flip transfer nollie launch ramp mongo egg plant. Pogo slap maxwell g-turn boneless risers blunt nose slide.","imgFile":"skateboard-generic.png","serial":"2384993841228443","_id":"4D9RGKs81r0vKKZa"}
-*{"title":"Hoodie","price":699,"shortDesc":"Ash unisex","category":"clothes","longDesc":"Skate ipsum dolor sit amet, 50-50 Sidewalk Surfer nose bump kickflip bruised heel fakie berm soul skate. Bluntslide transition nollie hard flip bank pressure flip ho-ho. Steps rip grip nosepicker roll-in yeah 540 pump. ","imgFile":"hoodie-ash.png","serial":"898329843984982","_id":"J9tTPGIm0sV2DotK"}
-*{"title":"Hoodie","price":699,"shortDesc":"Ocean unisex","category":"clothes","longDesc":"Skate ipsum dolor sit amet, 50-50 Sidewalk Surfer nose bump kickflip bruised heel fakie berm soul skate. Bluntslide transition nollie hard flip bank pressure flip ho-ho. Steps rip grip nosepicker roll-in yeah 540 pump. ","imgFile":"hoodie-ocean.png","serial":"173891297371277","_id":"LGDgkXooA44QAhTS"}
-*{"title":"Hiphop","price":799,"shortDesc":"Unisex","category":"board","longDesc":"Skate ipsum dolor sit amet, 50-50 Sidewalk Surfer nose bump kickflip bruised heel fakie berm soul skate. Bluntslide transition nollie hard flip bank pressure flip ho-ho. Steps rip grip nosepicker roll-in yeah 540 pump. ","imgFile":"skateboard-generic.png","serial":"2834982384832822","_id":"W1tIrrpgRRy994QB"}
-*{"title":"Rocket","price":299,"category":"wheels","shortDesc":"Hard","longDesc":"Skate ipsum dolor sit amet, 50-50 Sidewalk Surfer nose bump kickflip bruised heel fakie berm soul skate. Bluntslide transition nollie hard flip bank pressure flip ho-ho. Steps rip grip nosepicker roll-in yeah 540 pump. ","imgFile":"wheel-rocket.png","serial":"712387128788877","_id":"dLf4MfPDMHNfmCU6"}
-*{"title":"Hoodie","price":699,"shortDesc":"Fire unisex","category":"clothes","longDesc":"Skate ipsum dolor sit amet, 50-50 Sidewalk Surfer nose bump kickflip bruised heel fakie berm soul skate. Bluntslide transition nollie hard flip bank pressure flip ho-ho. Steps rip grip nosepicker roll-in yeah 540 pump. ","imgFile":"hoodie-fire.png","serial":"9919312731273772","_id":"hhL9Y8L4yoLFucBS"}
-*{"title":"Flipper","price":799,"shortDesc":"Unisex","category":"board","longDesc":"Axle crailtap fastplant dude regular footed helipop impossible. Wax Jimmy'Z half-flip transfer nollie launch ramp mongo egg plant. Pogo slap maxwell g-turn boneless risers blunt nose slide.","imgFile":"skateboard-generic.png","serial":"238498293848233","_id":"jcct4cjRhrEcR58A"}
-*{"title":"Gretas Fury","price":999,"shortDesc":"Unisex","category":"board","longDesc":"Skate ipsum dolor sit amet, 50-50 Sidewalk Surfer nose bump kickflip bruised heel fakie berm soul skate. Bluntslide transition nollie hard flip bank pressure flip ho-ho. Steps rip grip nosepicker roll-in yeah 540 pump. ","imgFile":"skateboard-greta.png","serial":"127127838128877","_id":"kJ7dxMcWsfGvpRQF"}
-*{"title":"Swag","price":799,"shortDesc":"Unisex","category":"board","longDesc":"Skate ipsum dolor sit amet, 50-50 Sidewalk Surfer nose bump kickflip bruised heel fakie berm soul skate. Bluntslide transition nollie hard flip bank pressure flip ho-ho. Steps rip grip nosepicker roll-in yeah 540 pump. ","imgFile":"skateboard-generic.png","serial":"172381278381237","_id":"lu21QpuYgzDiQlFp"}
-*{"title":"Wave","price":249,"shortDesc":"Medium","longDesc":"Skate ipsum dolor sit amet, 50-50 Sidewalk Surfer nose bump kickflip bruised heel fakie berm soul skate. Bluntslide transition nollie hard flip bank pressure flip ho-ho. Steps rip grip nosepicker roll-in yeah 540 pump. ","imgFile":"wheel-wave.png","serial":"9919291231232312","_id":"xG5zhMsEJmn4Lt5H"}
-*{"title":"Spinner","price":249,"shortDesc":"Soft","category":"wheels","longDesc":"Skate ipsum dolor sit amet, 50-50 Sidewalk Surfer nose bump kickflip bruised heel fakie berm soul skate. Bluntslide transition nollie hard flip bank pressure flip ho-ho. Steps rip grip nosepicker roll-in yeah 540 pump. ","imgFile":"wheel-spinner.png","serial":"239491299929222","_id":"xSrodX1yrPCORBdM"}
+}
+</script>
