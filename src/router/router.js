@@ -6,9 +6,12 @@ import MyAccount from '../views/MyAccount.vue'
 import ProductList from '../views/ProductList.vue'
 import Registration from '../views/Registration.vue'
 
+
+// import StartPage from '../views/StartPage.vue'
 Vue.use(VueRouter)
 
   const routes = [
+    
   {
     path: '/AdminArea',
     name: 'AdminArea',
@@ -35,7 +38,6 @@ Vue.use(VueRouter)
     component: Registration
   }
 ]
-ls
 const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,

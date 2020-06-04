@@ -1,12 +1,19 @@
 <template>
-  <div> <h1>App.vue</h1>
+  
   <div id="app">
-    <router-view />
+
+    
+        <router-view />    
   </div>
-  </div>
+  
+
 </template>
 
+
+
+
 <style>
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
