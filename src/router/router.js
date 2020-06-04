@@ -8,6 +8,8 @@ import Registration from '../views/Registration.vue'
 import ApiTesting from '../views/ApiTesting.vue'
 import ApiCrudTesting from '../views/ApiCrudTesting.vue'
 
+
+// import StartPage from '../views/StartPage.vue'
 Vue.use(VueRouter)
 
 const routes = [
