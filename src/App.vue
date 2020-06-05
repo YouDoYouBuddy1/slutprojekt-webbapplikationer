@@ -4,9 +4,6 @@
   </div>
 </template>
 
-
-
-
 <style>
 
 #app {
