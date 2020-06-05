@@ -1,22 +1,30 @@
 <template>
-  <div class="Item" product="product">
-    <p>title: {{product.title}}</p>
+  <div class="container" :product="product">
+    
+    prod: {{product}}
+    
+    <!-- <div v-bind:imgFile="setPath(product.imgFile)"> -->
+      <div>
+      <p>image: {{product.imgFile}}</p>
+    <!-- <p>title: {{product.title}}</p>
     <p> Category: {{product.category}}</p>
     <p>short description: {{product.shortDesc}}</p>
-    <p> Long description: {{product.longDesc}}</p>
+    <p>Long description: {{product.longDesc}}</p>
     <p>Price: {{product.price}}</p>
-    <p>image: {{product.imgFile}}</p>
-
-    <p>searchPath: {{pathToFile}}</p>
     
-        
+    
+  <hr>
+    <p>searchPath: {{pathToImg}}</p>
+    <p>imgFile: {{imgFile}}</p>
     <p></p>
+        
+    <p></p> -->
+    </div>
 
 
 
-
-      <div class="header"><h1> Title: {{product.title}}</h1></div>
-      <div class="sidebar">
+        <div class="header"><h1> Title: {{product.title}}</h1></div>
+        <div class="sidebar">
         <span class="category">Category: {{product.category}}</span>
         <span class="longDesc">Long description{{product.longDesc}}</span>
         <span class="price">Price: {{product.price}}</span>
@@ -39,16 +47,17 @@
               
               <div class="carousel-item active">
               
-                <img src="../../store/assets/hoodie-ash.png" class="d-block w-100" alt="b">
+                <img :src="require('@/assets/'+imgFile)" class="d-block w-100" alt="b">
+                
             </div>
               
 
 
-            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <a class="carousel-control-prev" @click="getPrev" role="button" data-slide="prev">
               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
               <span class="sr-only">Previous</span>
             </a>
-            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <a class="carousel-control-next" @click="getNext" role="button" data-slide="next">
               <span class="carousel-control-next-icon" aria-hidden="true"></span>
               <span class="sr-only">Next</span>
             </a>
@@ -62,6 +71,7 @@
 </template>
 
 <script>
+
 export default {
   props:{
 
@@ -76,6 +86,7 @@ export default {
       // serial: String,
       // _id: String
     },
+    counter: Number,
 
 
   },
@@ -83,30 +94,147 @@ export default {
 data(){
     
     return{
-      current_product:{},
-      fileName: this.product.imgFile,
-      pathToFile: ''
+      self: 'In Item.vue: ',
+      imgFile: this.product.imgFile,
+      pathToImg: '',
+      updatedFile: '',
+      
+      testName: 'hoodie-ash.png',
+      current: {}
     }
 
   },
   methods:{
-
+    setProduct($event){
+      console.log($event);
+    },
+    setPath($event){
+      
+      console.log(this.self + "setPath(): $event is = ", $event);
+      this.imgFile = $event;
+      
+    },
+    getNext(){
+      this.counter +=1;
+      console.log(this.self+" getNext()", this.counter);
+    },
+    getPrev(){
+      this.counter -=1;
+      console.log(this.self+" getPrev()", this.counter);
+      
+    }
+    
   },
   created(){
-    // console.log("created: ",this.products[0].title);
+    // console.log("created: ",this.product.title);
 
-    this.fileName = this.product.imgFile;
+    this.imgFile= this.product.imgFile;
+    this.pathToImg = "../../" + this.product.imgFile;
+    
+    console.log("In Item.vue: created(): this.pathToImg is ", this.pathToImg);
     
     
   },
   watch: {
-    fileName() {
-      this.pathToFile = '../../store/assets/' + this.fileName;
+    imgFile() {
+      
+      console.log(this.self + " wath: imgFile(). ")
+      this.pathToImg = "../../store/assets/" + this.imgFile;
+    },
+    current() {
+      console.log("wathing: ", this.current);
+
     }
-  }
+
+  },
+  updated() {
+    console.log("updated: "+this.pathToImg)  
+  },
+
+
+  
 }
 </script>
 
 <style>
+/* 
+
+
+  
+  * {
+    
+    padding:0;
+    margin:0;
+   border: 1px solid black;
+  }
+  body{
+    border: 1px solid black;
+    width: fit-content;
+    padding: 100px;
+  }
+
+
+  .container{
+    background-color: #eee;
+    border: none;
+    margin: 50px;
+    padding:20px;
+    width: 1100px;
+    height: 900px;
+    
+    border: 1px solid black;
+    display: grid;
+    grid-template-columns: 4fr 2fr;
+    grid-template-rows: .5fr 3fr 1fr;
+    gap: 10px;
+    grid-template-areas: 
+        " header ."
+       " carousel sidebar"
+      " footer sidebar";
+  }
+
+
+  .header{
+    grid-area:header;
+    border: 1px solid blue;
+  }
+  .carousel{
+    grid-area: carousel;
+    border: 1px solid black;
+  }  
+
+
+
+
+  .sidebar{
+    grid-area: sidebar;
+
+    display: grid;
+    border: 1px solid black;
+
+    row-gap: 10px;;
+    
+  }
+
+  .carousel-indicators{
+    border: 1px solid red;
+  }
+
+  carousel-item{
+    
+    height: fit-content;
+    width: fit-content;
+    
+  }
+  .footer{
+    grid-area: footer;
+    height: fit-content;
+    border: 1px solid green;
+  }
+
+  .img{
+    color:red;
+  } */
+
 
 </style>

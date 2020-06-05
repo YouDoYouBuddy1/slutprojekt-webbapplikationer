@@ -10,13 +10,23 @@ export default new Vuex.Store({
   },
   mutations: {
     save_products(state, products) {
-      console.log('test from store');
+      
+      console.log("In Vuex: saveProducts(" +'\n\n'+ 
+      "state: " + state +'\n\n' +
+      "products: " + products +")");
+
+
       state.products = products;
     },
+
+
   },
   actions: {
     
     loadProducts({ commit }) {
+
+      console.log("In Vuex: loadProducts()");
+
       Api.get("products")
         .then((result) => {
           commit("save_products", result.data);
