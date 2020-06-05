@@ -1,12 +1,23 @@
 import Vue from "vue";
 import Vuex from "vuex";
-import Api from "@/api/api.js"
+import Api from "@/api/api.js";
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
     products: [],
+    user: {
+        "email": "",
+        "password": "",
+        "repeatPassword": "",
+        "name": "",
+        "adress": {
+           "street": "",
+           "city": "",
+           "zip": "",
+        }
+     },
   },
   mutations: {
     save_products(state, products) {
@@ -22,10 +33,8 @@ export default new Vuex.Store({
         .catch((error) => {
           throw new Error(`API ${error}`);
         });
-    }
+    },
   },
-  getters : {
-
-  },
+  getters: {},
   modules: {},
 });

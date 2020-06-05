@@ -6,6 +6,7 @@ import MyAccount from '../views/MyAccount.vue'
 import ProductList from '../views/ProductList.vue'
 import Registration from '../views/Registration.vue'
 import ApiTesting from '../views/ApiTesting.vue'
+
 Vue.use(VueRouter)
 
   const routes = [
