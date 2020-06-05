@@ -9,9 +9,6 @@
 
 </template>
 
-
-
-
 <style>
 
 #app {

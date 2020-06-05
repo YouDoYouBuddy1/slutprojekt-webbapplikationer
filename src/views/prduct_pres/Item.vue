@@ -1,5 +1,19 @@
 <template>
-  <div class="Item">
+  <div class="Item" product="product">
+    <p>title: {{product.title}}</p>
+    <p> Category: {{product.category}}</p>
+    <p>short description: {{product.shortDesc}}</p>
+    <p> Long description: {{product.longDesc}}</p>
+    <p>Price: {{product.price}}</p>
+    <p>image: {{product.imgFile}}</p>
+
+    <p>searchPath: {{pathToFile}}</p>
+    
+        
+    <p></p>
+
+
+
 
       <div class="header"><h1> Title: {{product.title}}</h1></div>
       <div class="sidebar">
@@ -39,8 +53,9 @@
               <span class="sr-only">Next</span>
             </a>
           </div>
-        <div class="footer">Price: {{product.price}}</div>
+        <div class="footer">Price :${{product.price}}</div>
       </div>
+      
   </div>
   
   
@@ -48,24 +63,47 @@
 
 <script>
 export default {
+  props:{
+
+    product: {
+
+      // title: String,
+      // price: Number,
+      // shortDesc: String,
+      // category: String,
+      // longDesc: String,
+      // imgFile: String,
+      // serial: String,
+      // _id: String
+    },
+
+
+  },
+
 data(){
+    
     return{
-      product:
-        { 
-          title:"Tricky",
-          price: 799, 
-
-          shortDesc:"Unisex",
-          category:"board",
-          longDesc:"Skate ipsum dolor sit amet, 50-50 Sidewalk Surfer nose bump kickflip bruised heel fakie berm soul skate. Bluntslide transition nollie hard flip bank pressure flip ho-ho. Steps rip grip nosepicker roll-in yeah 540 pump. ",
-          imgFile:"skateboard-generic.png",
-          serial:"231874871397182",
-          _id:"3xRRf0wWEzJCwCWo"
-      }
-
+      current_product:{},
+      fileName: this.product.imgFile,
+      pathToFile: ''
     }
 
   },
+  methods:{
+
+  },
+  created(){
+    // console.log("created: ",this.products[0].title);
+
+    this.fileName = this.product.imgFile;
+    
+    
+  },
+  watch: {
+    fileName() {
+      this.pathToFile = '../../store/assets/' + this.fileName;
+    }
+  }
 }
 </script>
 

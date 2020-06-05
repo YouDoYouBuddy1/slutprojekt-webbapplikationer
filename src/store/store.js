@@ -15,6 +15,7 @@ export default new Vuex.Store({
     },
   },
   actions: {
+    
     loadProducts({ commit }) {
       Api.get("products")
         .then((result) => {
@@ -22,8 +23,8 @@ export default new Vuex.Store({
         })
         .catch((error) => {
           throw new Error(`API ${error}`);
-        });
-    }
+        } );
+      }
   },
   getters : {
 

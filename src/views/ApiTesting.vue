@@ -5,7 +5,8 @@
 <p>{{product.title}}</p>
 
     </div>
-    {{}}
+    
+
 </div>
 </template>
 
@@ -19,18 +20,23 @@ props: {
 },
 data() {
 return {
-data: []
-}
+  data: [],
+  }
 },
+
 methods: {
 
 },
 computed: {
- ... mapState(['products']) 
+ ... mapState(['products']),
+ 
+ 
 },
+
 created() {
     this.$store.dispatch('loadProducts');
-}
+    
+  }
 }
 </script>
 
