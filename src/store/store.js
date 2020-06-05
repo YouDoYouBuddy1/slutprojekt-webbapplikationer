@@ -10,11 +10,14 @@ export default new Vuex.Store({
     orderHistory: [{_id: 123, timeStamp: Date.now(), status: 'inProgress', items:[], orderValue: 999}]}
   },
   mutations: {
+    SET_CURRENT_USER(state, account) {
+      state.currentUser = account
+    }
   },
   actions: {
-    registerAccount()
+    registerAccount({ commit }, account)
     {
-
+      commit("SET_CURRENT_USER", account)
     }
   },
   modules: {
