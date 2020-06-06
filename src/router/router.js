@@ -6,11 +6,13 @@ import MyAccount from '../views/MyAccount.vue'
 import ProductList from '../views/product/ProductList.vue'
 import Registration from '../views/Registration.vue'
 import ApiTesting from '../views/ApiTesting.vue'
+import StartPage from '../views/StartPage.vue'
+
 Vue.use(VueRouter)
 
   const routes = [
   { 
-      path: '/',
+      path: '/ApiTesting',
       name: 'ApiTesting',
       component: ApiTesting
   },
@@ -38,6 +40,11 @@ Vue.use(VueRouter)
     path: '/Registration',
     name: 'Registration',
     component: Registration
+  },
+  {
+      path: '/',
+      name: 'StartPage',
+      component: StartPage
   }
 ]
 const router = new VueRouter({
