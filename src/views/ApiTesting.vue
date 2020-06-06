@@ -1,59 +1,91 @@
 <template>
-  <div>
-    <div v-for="product in products" v-bind:key="product._id">
-      <p>{{ product.title }}</p>
-    </div>
-    <button @click="addUser">ADDUSER</button>
-    <h1>And Now .. !</h1>
-    <div>
-      {{ product }}
-    </div>
-    <button @click="setProduct(id)"> Gets product</button>
-  </div>
+   <div>
+       <!-- Prints all product.title from mapState / store products -->
+      <div v-for="product in products" v-bind:key="product._id">
+         <p>{{ product.title }}</p>
+      </div>
+      
+       <!-- Get and display product from data -> id -->
+      <div>
+         {{ product }}
+      </div>
+      <button @click="getProduct(id)">Gets product</button>
+      <br/>
+      <!-- button sends registrationForm to register api -->
+      <div><button @click="alterEmail">change email</button></div>
+      <div><button @click="register">Register new User</button></div>
+      <br />
+      <br />
+      <h2>Login test</h2>
+      <!-- login -->
+      <br />
+      <br />
+      <p>
+         <button @click="login">
+            Click me to login
+         </button>
+      </p>
+      <br />
+      <p>{{user}}</p>
+      <br />
+      <br />
+   </div>
 </template>
 
 <script>
 import { mapState } from "vuex";
 import User from "../api/user.js";
 import Products from "../api/products.js";
+
 export default {
-  props: {},
-  // components: {
-  //     userApi
-  // },
-  data() {
-    return {
-      id: "IiBMLhNHfaoPaaN1",
-      product: [],
-      user: {
-        email: "Etest",
-        password: "Ptest",
-        repeatPassword: "Ptest",
-        name: "Ntest",
-        adress: {
-          street: "Stest",
-          city: "Ctest",
-          zip: "Ztest",
-        },
+   data() {
+      return {
+         loginResult: Boolean,
+         id: "IiBMLhNHfaoPaaN1",
+         product: [],
+         registrationForm: {
+            email: "Secondtest",
+            password: "Ptest",
+            repeatPassword: "Ptest",
+            name: "Ntest",
+            adress: {
+               street: "Stest",
+               city: "Ctest",
+               zip: "Ztest",
+            },
+         },
+         loginData: {
+            email: "Etest",
+            password: "Epassword",
+         },
+      };
+   },
+   methods: {
+      alterEmail() {
+         this.registrationForm.email += "K";
+         console.log(this.registrationForm.email);
       },
-    };
-  },
-  methods: {
-    addUser() {
-      console.log("Hello from addUSer method");
-      User.register(this.user);
-    },
-    // product.data innehåller objectet product men som array av alla as
-     async getProduct(id) {
-    let product = await Products.getProduct(id);
-    this.product = product.data; }
-  },
-  computed: {
-    ...mapState(["products"]),
-  },
-  created() {
-    this.$store.dispatch("loadProducts");
-  },
+      login() {
+         this.$store.dispatch("login", {email: this.registrationForm.email, password: this.registrationForm.password });
+        // ALTERNATIVELY: .dispatch("login", object)   object == 'loginData' , see above
+
+      },
+      register() {
+          User.register(this.registrationForm);
+      },
+      async getProduct(id) {
+         let res = await Products.getProduct(id);
+         // product.data innehåller array av element
+         this.product = res.data;
+      },
+   },
+   computed: {
+      ...mapState(["products"]),
+      ...mapState(["user"])
+   },
+   created() {
+      this.$store.dispatch("loadProducts");
+   },
 };
 </script>
 
