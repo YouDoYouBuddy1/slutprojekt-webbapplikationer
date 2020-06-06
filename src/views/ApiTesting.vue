@@ -11,15 +11,16 @@
       </div>
       <button @click="getProduct(id)">Gets product</button>
       <br/>
+      <br/>
+      <br/>
       <!-- button sends registrationForm to register api -->
       <div><button @click="alterEmail">change email</button></div>
+      <br/>
       <div><button @click="register">Register new User</button></div>
       <br />
       <br />
       <h2>Login test</h2>
       <!-- login -->
-      <br />
-      <br />
       <p>
          <button @click="login">
             Click me to login

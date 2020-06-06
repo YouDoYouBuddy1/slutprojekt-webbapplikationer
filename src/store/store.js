@@ -34,21 +34,25 @@ export default new Vuex.Store({
                 console.log(error.response);
             }
         },
-        loadProducts({ commit }) {
-            Api.get("products")
-                .then((result) => {
-                    commit("SAVE_PRODUCTS", result.data);
-                })
-                .catch((error) => {
-                    throw new Error(`API ${error}`);
-                });
+        async loadProducts({ commit }) {
+            try { let result = await Api.get("products")
+               commit("SAVE_PRODUCTS", result.data);
+                }
+                catch(error){
+                    console.log(error.response);
+                }
         },
-        // Kan man göra så här?
-        // måste anropet vara asynch?
-        // login(commit, logon) {
-        //     let result = User.login(logon)
-        // }
-        // där login u user.js är asynch istället?
+
+        // Är non-synchronous okej - när - varför ?
+        // loadProducts({ commit }) {
+        //     Api.get("products")
+        //         .then((result) => {
+        //             commit("SAVE_PRODUCTS", result.data);
+        //         })
+        //         .catch((error) => {
+        //             throw new Error(`API ${error}`);
+        //         });
+        // },
     },
     getters: {},
     modules: {},

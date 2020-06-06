@@ -12,7 +12,7 @@ export default {
         }
 
     },
- login(loginData) {
+    login(loginData) {
         return Api.post("auth", loginData);
         },
 
