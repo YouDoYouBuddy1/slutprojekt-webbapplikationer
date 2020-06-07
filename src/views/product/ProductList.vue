@@ -1,134 +1,76 @@
 <template>
+  <div>
+     <div :items="products" :func="test(products)">
+      <!-- <p>{{products}}</p>
+      <h1>{{products.length}}</h1> -->
 
-  <div class="container" :products = "products">
-    
-    <Item v-bind:product="current_product"></Item>    
+      <h1>template</h1>
+     </div>
 
-      <p>This is the product list page</p>
-
-        
-        <!-- <p :product="getNext"></p> -->
-      
-    
-          
-          <p>current_product: {{current_product}}</p>
-          <p>titel: {{current_product.title}}</p>
-          <p>size: {{size}}</p>
-          
-
-        <!-- <button class="btn btn-primary"  @click="getNext"> Next</button> -->
-        
-        <!-- <hr>        
-        <p> whatching item:# {{counter}}</p>
-        <hr> -->
-        <!-- <Item v-bind:product="product"></Item> -->
-        
-        
-        
-     
-    
-    
   </div>
+  
+      
 </template>
 
 <script>
-import Item from './Item.vue';
-//import {mapGetters} from 'vuex';
+
 import {mapState} from 'vuex';
 
 export default {
+  name: 'container',
   data(){
     
-    return {
-      counter: 0,
-      current_product: {},
-      current:{},
-      test:{
-        value:10,
-        name:"ivan",
-      },
-      list: [],
-      self: 'In ProductList: ',
-      size: 0,
-      temp:{},
-
+    return{
+      items: [],
+      first: true,
+      second: false,
     }
-
-  },
-  
-  methods:{
-    getItem($event){
-      console.log($event);
-      this.product = $event;
-    },
-
-    setSize($event){
-      this.size = $event;
-      console.log("setSize: "+this.size);
-    },
-    getNext(){
-      console.log("getNext");
-      this.counter +=1;
-      this.counter = this.counter %  this.products.length;
-      this.current_product = this.products[this.counter];
-      console.log(this.self+ "getNext: ", this.current_product);
-      
-
-    },
-    
-
-    increase(){
-      this.counter +=1;
-      
-    },
-    getTest(){
-      this.test={value:10, name: 'ivan'}
-    }
-
-  
   },
 
-    components:{
-      Item: Item,
-  },
   computed:{
     ... mapState(['products'])
   },
-
-watch:{
-  products:function(){
-    console.log(this.self + "watching: ", this.products);
-    this.current_product = this.products[0];
-    this.size = this.products.length;
-  }
-},
-
-beforeCreate() {
-  console.log("in ProductList.vue: beforeCreate(): calling store")
   
-  this.$store.dispatch('loadProducts');
+  methods: {
+    test($event){
+      console.log("test(): ");
+      console.log("first: "+this.first);
+      console.log("second: "+this.second);
 
-  console.log("In ProductList.vue:beforeCreate() "  +" 'this' is "+this.self );
-  console.log("In ProductList.vue:beforeCreate(): and this.products is: " , this.products);
-},
+      console.log("In test-function: event = ", $event);
+      console.log("This = ", this);
+      console.log(this.items);
+      this.first = !this.first;
+      this.secont = !this.second;
+    }
+  },
+ 
+  
+
+    beforeCreate() {
+    // console.log("in ProductList.vue: beforeCreate(): calling store");
+    // console.log(this);
+  
+    console.log("in beforeCreated(): ", this);
+    this.$store.dispatch('loadProducts');
+    console.log(" In beforeCreate(): ", this.products);
+    
+    },
 
   created() {
-    console.log(this.self+ " created(): lenght ", this.products.length);
-},
+    console.log(this.self + "in created ", this.products);
+    // console.log(this.self+ " created(): lenght ", this.products.length);
+  },
 
-
-
-
-
-beforeMount() {
-  
-  console.log(this.self + "before mount", this.products.length);
-  
-},
-
-
+  beforeMount() {
+    console.log(this.self + "beforeMount(); ", this.products);
+  },
+  mounted() {
+    console.log("in mounted: ", this.products);
+    console.log("in mounted: ", this.items);
+    // this.imgFile = this.products[this.counter].imgFile
+    
+    
+  },
 }
 </script>
-<style scoped>
-
-</style>
