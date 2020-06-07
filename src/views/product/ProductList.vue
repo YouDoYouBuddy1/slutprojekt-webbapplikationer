@@ -1,5 +1,10 @@
 <template>
+  <div>
+     <div :items="products" :func="test(products)">
+      <!-- <p>{{products}}</p>
+      <h1>{{products.length}}</h1> -->
 
+<<<<<<< HEAD
   <div class="container" :products = "products">
     
     <Item v-bind:product="current_product"></Item>    
@@ -76,10 +81,18 @@
      
     
     
+=======
+      <h1>template</h1>
+     </div>
+
+>>>>>>> 5ec77ed5... inget är klart
   </div>
+  
+      
 </template>
 
 <script>
+<<<<<<< HEAD
 <<<<<<< HEAD
 // import ItemViews from './productItems/Item.vue';
 import Item from './prduct_pres/Item.vue';
@@ -87,28 +100,27 @@ import Item from './prduct_pres/Item.vue';
 import Item from './Item.vue';
 >>>>>>> afbd9b52... Lagt till mapp product för relaterade komponenter
 //import {mapGetters} from 'vuex';
+=======
+
+>>>>>>> 5ec77ed5... inget är klart
 import {mapState} from 'vuex';
 
 export default {
+  name: 'container',
   data(){
     
-    return {
-      counter: 0,
-      current_product: {},
-      current:{},
-      test:{
-        value:10,
-        name:"ivan",
-      },
-      list: [],
-      self: 'In ProductList: ',
-      size: 0,
-      temp:{},
-
+    return{
+      items: [],
+      first: true,
+      second: false,
     }
+  },
 
+  computed:{
+    ... mapState(['products'])
   },
   
+<<<<<<< HEAD
   data(){
     return{
       product:
@@ -149,60 +161,49 @@ export default {
       this.current_product = this.products[this.counter];
       console.log(this.self+ "getNext: ", this.current_product);
       
+=======
+  methods: {
+    test($event){
+      console.log("test(): ");
+      console.log("first: "+this.first);
+      console.log("second: "+this.second);
 
-    },
-    
-
-    increase(){
-      this.counter +=1;
-      
-    },
-    getTest(){
-      this.test={value:10, name: 'ivan'}
+      console.log("In test-function: event = ", $event);
+      console.log("This = ", this);
+      console.log(this.items);
+      this.first = !this.first;
+      this.secont = !this.second;
     }
-
+  },
+ 
   
-  },
+>>>>>>> 5ec77ed5... inget är klart
 
-    components:{
-      Item: Item,
-  },
-  computed:{
-    ... mapState(['products'])
-  },
-
-watch:{
-  products:function(){
-    console.log(this.self + "watching: ", this.products);
-    this.current_product = this.products[0];
-    this.size = this.products.length;
-  }
-},
-
-beforeCreate() {
-  console.log("in ProductList.vue: beforeCreate(): calling store")
+    beforeCreate() {
+    // console.log("in ProductList.vue: beforeCreate(): calling store");
+    // console.log(this);
   
-  this.$store.dispatch('loadProducts');
-
-  console.log("In ProductList.vue:beforeCreate() "  +" 'this' is "+this.self );
-  console.log("In ProductList.vue:beforeCreate(): and this.products is: " , this.products);
-},
+    console.log("in beforeCreated(): ", this);
+    this.$store.dispatch('loadProducts');
+    console.log(" In beforeCreate(): ", this.products);
+    
+    },
 
   created() {
-    console.log(this.self+ " created(): lenght ", this.products.length);
-},
+    console.log(this.self + "in created ", this.products);
+    // console.log(this.self+ " created(): lenght ", this.products.length);
+  },
 
-
-
-
-
-beforeMount() {
-  
-  console.log(this.self + "before mount", this.products.length);
-  
-},
-
-
+  beforeMount() {
+    console.log(this.self + "beforeMount(); ", this.products);
+  },
+  mounted() {
+    console.log("in mounted: ", this.products);
+    console.log("in mounted: ", this.items);
+    // this.imgFile = this.products[this.counter].imgFile
+    
+    
+  },
 }
 
 
@@ -210,6 +211,7 @@ beforeMount() {
 
 
 </script>
+<<<<<<< HEAD
 <<<<<<< HEAD
 
 
@@ -312,3 +314,5 @@ beforeMount() {
 
 </style>
 >>>>>>> dc935841... lagt till mapp product_pres (product presentation) med Vue-komponent för att visa enskilda produkter
+=======
+>>>>>>> 5ec77ed5... inget är klart

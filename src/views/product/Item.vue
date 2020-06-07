@@ -1,7 +1,7 @@
 <template>
-  <div class="container" :product="product">
+  <div class="container" :product="product" :ver="enterPoroduct(product)">
     
-    prod: {{product}}
+    prod: {{product.imgFile}}
     
     <!-- <div v-bind:imgFile="setPath(product.imgFile)"> -->
       <div>
@@ -105,6 +105,11 @@ data(){
 
   },
   methods:{
+
+    enterPoroduct($event){
+      console.log("Enter product: ", $event)
+    },
+
     setProduct($event){
       console.log($event);
     },
@@ -128,10 +133,10 @@ data(){
   created(){
     // console.log("created: ",this.product.title);
 
-    this.imgFile= this.product.imgFile;
-    this.pathToImg = "../../" + this.product.imgFile;
+    // this.imgFile= this.product.imgFile;
+    // this.pathToImg = "../../" + this.product.imgFile;
     
-    console.log("In Item.vue: created(): this.pathToImg is ", this.pathToImg);
+    console.log("In Item.vue: created(): this.product.pathToImg is ", this.product.pathToImg);
     
     
   },
