@@ -3,13 +3,15 @@ import VueRouter from 'vue-router'
 import AdminArea from '../views/AdminArea.vue'
 import Checkout from '../views/Checkout.vue'
 import MyAccount from '../views/MyAccount.vue'
-import ProductList from '../views/product/ProductList.vue'
+import ProductViewer from '../views/product/ProductViewer.vue'
 import Registration from '../views/Registration.vue'
 import ApiTesting from '../views/ApiTesting.vue'
 import ApiCrudTesting from '../views/ApiCrudTesting.vue'
 
 
 // import StartPage from '../views/StartPage.vue'
+import FramePage from '../views/product/FramePage.vue'
+
 Vue.use(VueRouter)
 
 const routes = [
@@ -29,25 +31,35 @@ const routes = [
         component: AdminArea
     },
     {
-        path: '/Checkout',
-        name: 'Checkout',
-        component: Checkout
-    },
-    {
-        path: '/MyAccount',
-        name: 'MyAccount',
-        component: MyAccount
-    },
-    {
-        path: '/ProductList',
-        name: 'ProductList',
-        component: ProductList
-    },
-    {
-        path: '/Registration',
-        name: 'Registration',
-        component: Registration
-    }
+    path: '/AdminArea',
+    name: 'AdminArea',
+    component: AdminArea
+  },
+  {
+    path: '/Checkout',
+    name: 'Checkout',
+    component: Checkout
+  },
+  {
+    path: '/MyAccount',
+    name: 'MyAccount',
+    component: MyAccount
+  },
+  {
+    path: '/FramePage',
+    name: 'FramePage',
+    component: FramePage
+  },
+  {
+    path: '/ProductViewer',
+    name: 'ProductViewer',
+    component: ProductViewer
+  },
+  {
+    path: '/Registration',
+    name: 'Registration',
+    component: Registration
+  }
 ]
 
 
