@@ -3,9 +3,11 @@ import VueRouter from 'vue-router'
 import AdminArea from '../views/AdminArea.vue'
 import Checkout from '../views/Checkout.vue'
 import MyAccount from '../views/MyAccount.vue'
-import ProductList from '../views/product/ProductList.vue'
+import ProductViewer from '../views/product/ProductViewer.vue'
 import Registration from '../views/Registration.vue'
 import ApiTesting from '../views/ApiTesting.vue'
+import FramePage from '../views/product/FramePage.vue'
+
 Vue.use(VueRouter)
 
   const routes = [
@@ -30,9 +32,14 @@ Vue.use(VueRouter)
     component: MyAccount
   },
   {
-    path: '/ProductList',
-    name: 'ProductList',
-    component: ProductList
+    path: '/FramePage',
+    name: 'FramePage',
+    component: FramePage
+  },
+  {
+    path: '/ProductViewer',
+    name: 'ProductViewer',
+    component: ProductViewer
   },
   {
     path: '/Registration',

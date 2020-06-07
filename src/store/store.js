@@ -11,9 +11,9 @@ export default new Vuex.Store({
   mutations: {
     save_products(state, products) {
       
-      console.log("In Vuex: saveProducts(" +'\n\n'+ 
-      "state: " + state +'\n\n' +
-      "products: " + products +")");
+      // console.log("In Vuex: saveProducts(" +'\n\n'+ 
+      // "state: " + state +'\n\n' +
+      // "products: " + products +")");
 
 
       state.products = products;
