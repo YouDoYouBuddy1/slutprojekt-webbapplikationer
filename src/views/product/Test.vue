@@ -55,11 +55,12 @@ export default {
 
   beforeCreate() {
 
-    this.$store.dispatch('loadProducts');
+    
     console.log("Before create: ", this.products);
     },
 
   created(){
+    this.$store.dispatch('loadProducts');
     console.log("created: ", this.products);
     localStorage.setItem("prods:", this.products);
     localStorage.setItem("this: ", this);
