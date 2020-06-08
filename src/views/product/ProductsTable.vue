@@ -96,6 +96,7 @@ export default {
   data(){
     return{
       counter:0,
+      
     }
   },
   computed:{
@@ -135,10 +136,14 @@ export default {
   table{
     border: 1px solid;
   }
+
+
+  
   .table-header{
     background-color: #42b983;
-;
   }
+
+
   .temp{
     margin: 10px;
     border: 1px solid;
