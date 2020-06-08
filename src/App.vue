@@ -1,7 +1,13 @@
 <template>
   
   <div id="app">
-
+    <h1>App</h1>
+    <div id="nav">
+      <router-link to="/">Home</router-link> |
+      <router-link to=/FramePage>Products</router-link> |
+      <router-link to="/Test">Test</router-link> |
+      <router-link to="/ProductsTable">ProductsTable</router-link> 
+    </div>
     
         <router-view />    
   </div>
@@ -9,7 +15,7 @@
 
 </template>
 
-<style>
+<style scoped>
 
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;

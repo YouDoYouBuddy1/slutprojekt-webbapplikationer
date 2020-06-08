@@ -7,6 +7,9 @@ import ProductViewer from '../views/product/ProductViewer.vue'
 import Registration from '../views/Registration.vue'
 import ApiTesting from '../views/ApiTesting.vue'
 import FramePage from '../views/product/FramePage.vue'
+import ProductsTable from '../views/product/ProductsTable.vue'
+
+import Test from '../views/product/Test.vue';
 
 Vue.use(VueRouter)
 
@@ -45,6 +48,16 @@ Vue.use(VueRouter)
     path: '/Registration',
     name: 'Registration',
     component: Registration
+  },
+  {
+    path: '/ProductsTable',
+    name: 'ProductsTable',
+    component: ProductsTable
+  },
+  {
+    path: '/Test',
+    name: 'Test',
+    component: Test
   }
 ]
 const router = new VueRouter({
