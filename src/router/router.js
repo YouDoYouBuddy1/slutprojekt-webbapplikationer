@@ -11,6 +11,9 @@ import ApiCrudTesting from '../views/ApiCrudTesting.vue'
 
 // import StartPage from '../views/StartPage.vue'
 import FramePage from '../views/product/FramePage.vue'
+import ProductsTable from '../views/product/ProductsTable.vue'
+
+import Test from '../views/product/Test.vue';
 
 Vue.use(VueRouter)
 
@@ -59,6 +62,16 @@ const routes = [
     path: '/Registration',
     name: 'Registration',
     component: Registration
+  },
+  {
+    path: '/ProductsTable',
+    name: 'ProductsTable',
+    component: ProductsTable
+  },
+  {
+    path: '/Test',
+    name: 'Test',
+    component: Test
   }
 ]
 
