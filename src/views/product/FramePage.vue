@@ -30,9 +30,11 @@ import ProductViewer from './ProductViewer.vue';
 
 export default {
   
+  computed:{
+    
+  },
 
-
-  beforeCreate() {
+  created() {
     this.$store.dispatch('loadProducts');
   },
 
