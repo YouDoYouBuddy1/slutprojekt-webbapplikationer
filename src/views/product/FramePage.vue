@@ -105,8 +105,8 @@ body{
 
 .frame-page{
   border: 1px solid red;
-  column-gap:20px;
-  border-radius: 20px;
+  column-gap:10px;
+  border-radius: 10px;
   
   
    display: grid;

@@ -19,7 +19,7 @@
 
             <div class="carousel-inner">
               <div class="carousel-item active">
-                <img :src="require('@/assets/'+product.imgFile)" class="d-block w-100" alt="b">
+                <img :src="require('@/assets/'+products[counter].imgFile)" class="d-block w-100" alt="b">
                 </div>
               
 
