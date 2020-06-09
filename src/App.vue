@@ -6,7 +6,8 @@
       <router-link to="/">Home</router-link> |
       <router-link to=/FramePage>Products</router-link> |
       <router-link to="/Test">Test</router-link> |
-      <router-link to="/ProductsTable">ProductsTable</router-link> 
+      <router-link to="/ProductsTable">ProductsTable</router-link> |
+      <router-link to="/ProductViewer">ProdctViewer</router-link>
     </div>
     
         <router-view />    
