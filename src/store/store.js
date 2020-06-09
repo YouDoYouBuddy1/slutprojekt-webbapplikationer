@@ -24,9 +24,13 @@ export default new Vuex.Store({
         SAVE_USER(state, user) {
             state.user = user;
         },
+
+
         SAVE_PRODUCTS(state, products) {
             state.products = products;
         },
+
+        
         SAVE_TOKEN(state, token) {
             state.token = token;
         },
@@ -40,6 +44,7 @@ export default new Vuex.Store({
             state.cart.push(product);
         }
     },
+
     actions: {
         addToCart({commit}, product) {
             commit("SAVE_PRODUCT_TO_CART", product);
@@ -55,6 +60,7 @@ export default new Vuex.Store({
         },
         async login({ commit }, loginData) {
             try {
+
                 let result = await User.login(loginData);
                 commit("SAVE_TOKEN", result.data.token);
                 console.log(result.data.token);

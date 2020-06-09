@@ -1,13 +1,13 @@
 <template>
+
     <div class="container" v-bind:proudct="loadProduct()">
-     
+      
      
      
      <div class="header"><h1> Title: {{product.title}}</h1> </div>
-
-        <div class="shoppingChart"> Shopp</div>   
+ 
         
-        <!-- sidebar slut -->
+        
       <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
             
 
@@ -50,6 +50,7 @@ import {mapState} from 'vuex';
 
 
 export default {
+  name: 'ProductViewer',
   
   data(){
     
@@ -94,8 +95,7 @@ export default {
     },
   },
 
-   beforeCreate() {
-
+   created() {
     this.$store.dispatch('loadProducts');
 
     },

@@ -10,7 +10,7 @@
         <div class="product-catogory"><h1>category 4</h1></div>
       </div>
       <div class="viewer">
-      <product-viewer></product-viewer>
+      <ProductViewer></ProductViewer>
          </div>
       <div class="footer">footer</div>
        </div>
@@ -35,11 +35,10 @@ export default {
   },
 
   created() {
-    this.$store.dispatch('loadProducts');
   },
 
   components:{
-    'product-viewer':ProductViewer,
+    ProductViewer,
   }
 }
 </script >
