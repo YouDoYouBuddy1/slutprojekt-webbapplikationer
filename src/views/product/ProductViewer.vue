@@ -64,10 +64,10 @@ export default {
   
   methods: {
     loadProduct(){
-      // let products = this.$store.dispatch('loadProducts');
-      // this.product = products[0];
+      let products = this.$store.dispatch('loadProducts');
+      this.product = products[0];
 
-      return this.$store.dispatch('loadProducts');
+      return this.product;
     
     },
     getPrev(){
