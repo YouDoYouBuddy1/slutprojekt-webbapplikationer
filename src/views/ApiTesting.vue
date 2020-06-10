@@ -1,13 +1,14 @@
 <template>
 	<div>
 		<!-- Prints all product.title from mapState / store products -->
-		<div v-for="product in products" v-bind:key="product._id">
-			<p>{{ product.title }}</p>
+		<div v-for="prod in products" v-bind:key="prod._id">
+			<p>{{ prod.title }}</p>
 		</div>
 
 		<!-- Get and display product from data -> id -->
 		<br />
 		<button @click="getProduct(id)">Gets product</button>
+        <img v-if="show" :src="require('@/assets/' + product.imgFile)">
 		<div>{{ product }}</div>
 		<br />
 		<br />
@@ -42,16 +43,13 @@
 
 <script>
 import { mapState } from "vuex";
-import User from "../api/user.js";
-import Products from "../api/products.js";
 
 export default {
 	data() {
 		return {
-			loginResult: Boolean,
-			id: "IiBMLhNHfaoPaaN1",
-			product: [],
-			registrationForm: {
+            show: false,
+			id: "RB1HxbVpJErOyLCI",
+			registration: {
 				email: "Secondtest",
 				password: "Ptest",
 				repeatPassword: "Ptest",
@@ -70,34 +68,31 @@ export default {
 	},
 	methods: {
 		alterEmail() {
-			this.registrationForm.email += "K";
-			console.log(this.registrationForm.email);
+			this.registration.email += "K";
+			console.log(this.registration.email);
 		},
 		login() {
 			this.$store.dispatch("login", {
-				email: this.registrationForm.email,
-				password: this.registrationForm.password
+				email: this.registration.email,
+				password: this.registration.password
 			});
 			// ALTERNATIVELY: .dispatch("login", object)   object == 'loginData' , see above
 		},
 		register() {
-			User.register(this.registrationForm);
+			this.$store.dispatch("register", this.registration);
 		},
-		async getProduct(id) {
-			let res = await Products.getProduct(id);
-			// product.data innehåller array av products
-			this.product = res.data;
-        },
-        // goToOrders(){
-        //     this.$router.push('/orders');
-        // }
+		getProduct(id) {
+            this.$store.dispatch("getProduct", id);
+            this.show = true;
+		}
 	},
 	computed: {
-        ...mapState(["products"]),
-		...mapState(["user"])
+		...mapState(["products"]),
+		...mapState(["user"]),
+		...mapState(["product"])
 	},
 	created() {
-        this.$store.dispatch("loadProducts");
+		this.$store.dispatch("loadProducts");
 	}
 };
 </script>
