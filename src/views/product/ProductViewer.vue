@@ -136,31 +136,21 @@ export default {
 }
 </script>
 <style scoped>
-
-
-
-  * {
-    
+  /* * {
     padding:0;
     margin:0;
-   border: 1px solid black;
-  }
+   border: 1px solid black; */
+  /* } */
   body{
     border: 1px solid black;
     width: fit-content;
     padding: 100px;
   }
-
-
   .container{
     border-radius: 20px;
     background-color: #eee;
     border: none;
-    
     padding:10px;
-    
-    
-    
     border: 1px solid black;
     display: grid;
     grid-template-columns: 4fr 2fr;
@@ -171,7 +161,6 @@ export default {
        "carousel   carousel"
         "footer    button";
   }
-
   .shoppingChart{
     border: 1px solid red;
     color: green;
@@ -179,12 +168,10 @@ export default {
     height: 40px;
     justify-self: end;
   }
-
   .buy-button{
     grid-area: button;
     background-color: #fff;
   }
-
   .header{
     grid-area:header;
     border: 1px solid blue;
@@ -193,32 +180,22 @@ export default {
     grid-area: carousel;
     border: 1px solid black;
   }  
-
   img{
-    height: 660px;
-    width: 940px;
+    height: 322px;
+    width: 180px;
   }
-
-
-
-
-
   .carousel-indicators{
     border: 1px solid red;
   }
-
-  carousel-item{
-    
+  /* .carousel-item{
     height: fit-content;
     width: fit-content;
-    
-  }
+  } */
   .footer{
     grid-area: footer;
     height: fit-content;
     border: 8px solid green;
   }
-
   .img{
     color:red;
   }

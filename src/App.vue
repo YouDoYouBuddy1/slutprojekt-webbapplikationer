@@ -10,10 +10,16 @@
       <router-link to="/Test">Test</router-link>
       <hr>
     </div>
-    
         <router-view />    
   </div>
 </template>
+<script>
+export default {
+created() {
+    this.$store.dispatch("loadProducts");
+}
+}
+</script>
 
 <style scoped>
 

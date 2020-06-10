@@ -1,63 +1,30 @@
 <template>
   <div>
-  
-
       <form action="">
           <label for="filterField">
-            
             <select id="">
               <option value=""> Disable filters </option>
               <option value="Title">Title</option>
               <option value="Category">Category</option>
               <option value="Price">Price</option>
-              
-              
             </select>
           </label>
-          
           <label for="filterQuery">
             Query:
             <input type="text" id="filterQuery" v-model="filterQuery">
           </label>
-
           <span>
             Choice:
             <label for="yes">
               Yes:
               <input type="radio" v-bind:value="true" id="yes"  selectd>
             </label>
-
             <label for="no">
               No:
               <input type="radio" v-bind:value="false" id="no" >
-              
             </label>
           </span>
         </form>
-
-  <!-- <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
-  <button type="button" class="btn btn-secondary">Button 1</button>
-  <button type="button" class="btn btn-secondary">Button 2</button>
-
-  
-  <div class="btn-group" role="group">
-    <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      Dropdown menu
-    </button>
-    <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-      <a class="dropdown-item" href="#">Dropdown link</a>
-      <a class="dropdown-item" href="#">Dropdown link</a>
-      
-    </div>
-    
-
-    </div> -->
-      
-    
-    
-
-    
-  
 
       <table class="temp">
       <tr class="table-header">
@@ -83,16 +50,13 @@
       <td>{{product._id}}</td>
       <td ><button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">text</button> </td>
       </tr>
-
     </table>
   </div>
 </template>
 <script>
 import {mapState} from 'vuex';
 
-
 export default {
-
   data(){
     return{
       counter:0,
@@ -101,19 +65,14 @@ export default {
   },
   computed:{
    ... mapState(['products']),
-   
-
   },
   methods:{
     countRows($val){
       return $val +1;
     }
   },
-
    beforeCreate() {
-
     this.$store.dispatch('loadProducts');
-
     },
 }
 </script>
@@ -121,13 +80,9 @@ export default {
   form{
     border: 1px solid;
     margin:20px;
-    
   }
-
   .btn-group{
     color: inherit;
-
-
   }
   label{
     margin-top:5px;
@@ -136,14 +91,9 @@ export default {
   table{
     border: 1px solid;
   }
-
-
-  
   .table-header{
     background-color: #42b983;
   }
-
-
   .temp{
     margin: 10px;
     border: 1px solid;

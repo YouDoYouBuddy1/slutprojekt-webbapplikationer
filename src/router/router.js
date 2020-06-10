@@ -6,13 +6,11 @@ import MyAccount from '../views/MyAccount.vue'
 import Registration from '../views/Registration.vue'
 import ApiTesting from '../views/ApiTesting.vue'
 import ApiCrudTesting from '../views/ApiCrudTesting.vue'
-// import StartPage from '../views/StartPage.vue'
 import FramePage from '../views/product/FramePage.vue'
 import ProductsTable from '../views/product/ProductsTable.vue'
-
-import ProductViewer from '../views/product/ProductViewer.vue'
+// import ProductViewer from '../views/product/ProductViewer.vue'
+import ProductsView from '../views/ProductsView.vue'
 import Cart from '../views/cart/Cart.vue'
-
 
 Vue.use(VueRouter)
 
@@ -55,7 +53,7 @@ const routes = [
     {
         path: '/ProductViewer',
         name: 'ProductViewer',
-        component: ProductViewer
+        component: ProductsView
     },
     {
       path: '/ProductsTable',
