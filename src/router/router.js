@@ -9,7 +9,7 @@ import ApiCrudTesting from '../views/ApiCrudTesting.vue'
 // import StartPage from '../views/StartPage.vue'
 import FramePage from '../views/product/FramePage.vue'
 import ProductsTable from '../views/product/ProductsTable.vue'
-import Test from '../views/product/Test.vue'
+
 import ProductViewer from '../views/product/ProductViewer.vue'
 import Cart from '../views/cart/Cart.vue'
 
@@ -67,11 +67,6 @@ const routes = [
       name: 'Cart',
       component: Cart,
     },
-    {
-      path: '/Test',
-      name: 'Test',
-      component: Test,
-    }
 ]
 
 const router = new VueRouter({

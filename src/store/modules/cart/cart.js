@@ -2,8 +2,10 @@
 
 const state = {
   
-  cart: []
+  currentOrder: {},
+  created: false,
 
+  
 };
 
 
@@ -11,67 +13,80 @@ const state = {
 const mutations = {
 
   ADD_ITEM(state, payload){
-    
-    let newItem = payload;
-    state.cart.push(newItem);
+
+    state.currentOrder = payload;
+    state.created = true;
   },
 
-  // REMOVE_ITEM (state, payload){
-
-  // }
 
 };
 
 
 const actions = {
   
+
   addItem({commit}, payload){
-      console.log("addProductToCart-call");
-      
-      
-      console.log("state.cart: ",state.cart);
-      
-      console.log("payload: ", payload);
-      
-      const inCart = state.cart.find(item => item.id == payload._id);
-      if(inCart){
+    
+    
+    let order = (state.created)? state.currentOrder: actions.createNewOrder();
+    console.log("order created: ", order);
+    
+    actions.addToOrder(order, payload);
+    console.log("payload: ", payload)
+    
+    commit('ADD_ITEM', order);
 
-        console.log("Is in cart: ", inCart);
-        inCart.quantity +=1;
-        inCart.sum = inCart.quantity * inCart.itemPrice
-
-      }
-      else{
-        console.log("Not in cart");
-        let newItem = {
-
-          product: payload,
-          title: payload.title,
-          itemPrice: payload.price,
-          id: payload._id,
-          quantity: 1,
-          sum: payload.price
-        };
-        commit('ADD_ITEM', newItem);
-      }
-
-
-      
+    console.log("TheOrder: ", order);
   },
+
+
+ createNewOrder(){
+
+    let order = {
+      _id: 123,
+      timeStamp: '',
+      status: 'inProcess',
+      items: [],
+      orderValue:0,
+    };
+    
+
+    console.log("CreateNewOrder(): ", order);
+    
+    return order;
+  },
+
+  addToOrder(order, payload){
+    console.log("adding payload ", payload);
+    console.log("to order: ", order);
+    order.items.push(payload._id);
+    order.orderValue += payload.price;
+
+
+  },
+
+
+
 
   removeItem({commit}, payload){
     const itemIn = state.cartItems.find( item => item._id == payload._id )
     console.log(itemIn);
     commit;
+  },
+
+  getOrder(){
+    console.log("returning: ", state.currentOrder);
+    return state.currentOrder;
   }
-    
-
-
 };
 
 const getters = {
-  cartItems: state => state.cart,
+
+  order: state => state.currentOrder,
+  created: state => state.created,
+  itemsIncart: state => state.currentOrder.items.length,  
 };
+
 const CartModule = {
   state,
   mutations,
