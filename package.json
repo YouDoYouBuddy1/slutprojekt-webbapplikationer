@@ -24,5 +24,18 @@
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.2.2",
     "vue-template-compiler": "^2.6.11"
-  }
+  },
+  "description": "av Fabian, Ivan G och Oliver",
+  "main": ".eslintrc.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YouDoYouBuddy1/slutprojekt-webbapplikationer.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/YouDoYouBuddy1/slutprojekt-webbapplikationer/issues"
+  },
+  "homepage": "https://github.com/YouDoYouBuddy1/slutprojekt-webbapplikationer#readme"
 }

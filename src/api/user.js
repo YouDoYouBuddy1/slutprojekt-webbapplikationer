@@ -10,7 +10,6 @@ export default {
         return Api.post("auth", loginData);
     },
 
-
     // Alternatively written:
     //   login(email, password) {
     //     return Api({
