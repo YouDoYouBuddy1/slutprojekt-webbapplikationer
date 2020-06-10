@@ -4,6 +4,7 @@ import Api from "@/api/api.js"
 import User from "@/api/user.js"
 import Products from '@/api/products.js'
 import Orders from '@/api/orders.js'
+import Cart from "./modules/cart/cart.js"
 
 Vue.use(Vuex);
 
@@ -145,5 +146,7 @@ export default new Vuex.Store({
             
         // }
     },
-    modules: {},
+    modules: {
+      Cart,
+    },
 });

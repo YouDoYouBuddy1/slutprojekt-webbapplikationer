@@ -1,8 +1,8 @@
 <template>
 
     <div class="container" :product="loadProduct">
-      {{product}}
-     <div class="header"><h1> Title: {{product.title}}</h1> </div>
+      
+     <div class="header"><h1> Title: {{products[0].title}}</h1> </div>
  
       <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
@@ -25,9 +25,9 @@
           </div>
        
       </div>
-      <div class="footer"> <h1>ProuView-footer</h1>:${{product.price}}</div>
-      <div class="cart">CART</div>
-      <div class="button"><button @click="addToCart(product)">KÖP</button></div>
+      <div class="footer"> <h1>ProuView-footer</h1>:${{products[counter].price}}</div>
+      <div class="cart"><MiniCart/></div>
+      <div class="button"><button @click="addToCart(products[counter])">KÖP</button></div>
   </div>
   
       
@@ -35,7 +35,7 @@
 
 <script>
 
-
+import MiniCart from '../cart/MiniCart.vue';
 
 import {mapState} from 'vuex';
 
@@ -48,76 +48,88 @@ export default {
     
     return{
       counter: 0,
-      product: {},
-      temp: [],
-
-      maxNr:0,
       
+      product: [],
+      temp: [],
+      maxNr: 0,
+      collection: [],
       
     }
   },
 
   computed:{
-   ... mapState(['products']),
-
+    ... mapState(['products']),
+    // products(){
+    //   return this.$store.state.products;
+    // }
   },
   
   methods: {
     loadProduct(){
       let products = this.$store.dispatch('loadProducts');
       this.product = products[0];
-
-      return this.product;
-    
+      console.log(products);
+      return this.product;    
     },
+
     getPrev(){
       
       this.counter -= 1;
       this.counter = (this.counter<0)? (this.products.length-1): this.counter;
-      this.product = this.products[this.counter];
+      // this.product = this.products[this.counter];
       console.log("nr ", this.counter);
-      console.log(this.product.imgFile);
+      // console.log(this.product.imgFile);
       
     },
-    getNext(){
-      
+
+    getNext(){  
       this.counter = (this.counter + 1) % (this.products.length);
-      console.log("nr ", this.counter);
-      console.log(this.products[this.counter]);
-      this.product = this.products[this.counter];
-      console.log(this.product.imgFile);
+      // console.log("nr ", this.counter);
+      // console.log(this.products[this.counter]);
+      // this.product = this.products[this.counter];
+      // console.log(this.product.imgFile);
       
     },
 
     addToCart(event){
-      console.log(event);
-      this.$store.dispatch('addItem', this.product); 
-      this.loadItems();
+      console.log("adds to cart: ", event);
+
+      this.$store.dispatch('addItem', this.products[this.counter]); 
+      
 
     },
 
 
-    async loadItems(){
 
-      console.log("calloing");
-      let result = await this.$store.dispatch('loadProducts');
-      console.log("Async: ", result);
-    }
 
 
 
   },
+  created(){
+    this.$store.dispatch('loadProducts');
+    this.collection = this.$store.state.products;
+    
+    
+  },
 
   
-   created() {
-    //  this.$store.dispatch('loadProducts');
-
+    mounted() {
+    // ... mapState(['products'])
+    // this.product = this.products
+    // this.$store.dispatch('loadProducts');
+    // // this.product = products[0];
+    console.log("Created: ", this.product)
+    // console.log(this.$store.state.products);
+    
     },
+    components:{
+      MiniCart,
+    }
 
-  mounted(){
-    this.loadItems();
 
-  }
+    
+
+  
 
   
     
