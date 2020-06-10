@@ -4,7 +4,6 @@
       <!-- <p>{{products}}</p>
       <h1>{{products.length}}</h1> -->
 
-<<<<<<< HEAD
   <div class="container" :products = "products">
     
     <Item v-bind:product="current_product"></Item>    
@@ -63,13 +62,9 @@
           <p>size: {{size}}</p>
           
 
-<<<<<<< HEAD
  
 
         <button class="btn btn-primary"  @click="getNext"> Next</button>
-=======
-        <!-- <button class="btn btn-primary"  @click="getNext"> Next</button> -->
->>>>>>> afbd9b52... Lagt till mapp product för relaterade komponenter
         
         <!-- <hr>        
         <p> whatching item:# {{counter}}</p>
@@ -175,10 +170,6 @@ export default {
       this.secont = !this.second;
     }
   },
- 
-  
->>>>>>> 5ec77ed5... inget är klart
-
     beforeCreate() {
     // console.log("in ProductList.vue: beforeCreate(): calling store");
     // console.log(this);

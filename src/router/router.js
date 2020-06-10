@@ -6,17 +6,11 @@ import MyAccount from '../views/MyAccount.vue'
 import Registration from '../views/Registration.vue'
 import ApiTesting from '../views/ApiTesting.vue'
 import ApiCrudTesting from '../views/ApiCrudTesting.vue'
-
-
 // import StartPage from '../views/StartPage.vue'
 import FramePage from '../views/product/FramePage.vue'
 import ProductsTable from '../views/product/ProductsTable.vue'
-
-import Test from '../views/product/Test.vue';
 import Test from '../views/product/Test.vue'
-import FramePage from '../views/product/FramePage.vue'
 import ProductViewer from '../views/product/ProductViewer.vue'
-import ProductsTable from '../views/product/ProductsTable.vue'
 import Cart from '../views/cart/Cart.vue'
 
 
@@ -39,47 +33,6 @@ const routes = [
         component: AdminArea
     },
     {
-<<<<<<< HEAD
-    path: '/AdminArea',
-    name: 'AdminArea',
-    component: AdminArea
-  },
-  {
-    path: '/Checkout',
-    name: 'Checkout',
-    component: Checkout
-  },
-  {
-    path: '/MyAccount',
-    name: 'MyAccount',
-    component: MyAccount
-  },
-  {
-    path: '/FramePage',
-    name: 'FramePage',
-    component: FramePage
-  },
-  {
-    path: '/ProductViewer',
-    name: 'ProductViewer',
-    component: ProductViewer
-  },
-  {
-    path: '/Registration',
-    name: 'Registration',
-    component: Registration
-  },
-  {
-    path: '/ProductsTable',
-    name: 'ProductsTable',
-    component: ProductsTable
-  },
-  {
-    path: '/Test',
-    name: 'Test',
-    component: Test
-  }
-=======
         path: '/Checkout',
         name: 'Checkout',
         component: Checkout
@@ -119,9 +72,7 @@ const routes = [
       name: 'Test',
       component: Test,
     }
->>>>>>> 1b085868... pushar test
 ]
-
 
 const router = new VueRouter({
     mode: 'history',
