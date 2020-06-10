@@ -27,7 +27,7 @@ export default {
 	props: {},
 	data() {
 		return {
-			id: "IiBMLhNHfaoPaaN1",
+			id: "A8kHboBk4fSQFPoZ",
 			newProduct: {
 				// _id: '39y7gbbZk1u4ABnv',
 				title: "Programmer Hell",
@@ -38,7 +38,7 @@ export default {
 				imgFile: "memme-troll.png"
 			},
 			order: {
-				items: ["IiBMLhNHfaoPaaN1", "x1UAwzdUgmAbx6U3"]
+				items: ["A8kHboBk4fSQFPoZ", "A8kHboBk4fSQFPoZ"]
 				// orderValue: 666
 			}
 		};

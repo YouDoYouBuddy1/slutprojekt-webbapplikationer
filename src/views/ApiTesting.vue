@@ -19,6 +19,11 @@
 		</div>
 		<br />
 		<br />
+        <div>
+			<button @click="orderValue">Order Value</button>
+		</div>
+		<br />
+		<br />
 		<!-- button sends registrationForm to api -->
 		<div>
 			<button @click="register">Register new User</button>
@@ -48,7 +53,7 @@ export default {
 	data() {
 		return {
             show: false,
-			id: "RB1HxbVpJErOyLCI",
+			id: "A8kHboBk4fSQFPoZ",
 			registration: {
 				email: "Secondtest",
 				password: "Ptest",
@@ -67,6 +72,10 @@ export default {
 		};
 	},
 	methods: {
+        orderValue() {
+          let whaaa = this.$store.getters.orderValue;
+          console.log(whaaa);
+        },
 		alterEmail() {
 			this.registration.email += "K";
 			console.log(this.registration.email);
