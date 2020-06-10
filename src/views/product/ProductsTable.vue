@@ -22,14 +22,14 @@
 
           <span>
             Choice:
-            <label for="userStateActive">
+            <label for="yes">
               Yes:
-              <input type="radio" v-bind:value="true" id="userStateActive" v-model="filterUserState" selectd>
+              <input type="radio" v-bind:value="true" id="yes"  selectd>
             </label>
 
-            <label for="userStateInactive">
+            <label for="no">
               No:
-              <input type="radio" v-bind:value="false" id="userStateInactive" v-model="filterUserState">
+              <input type="radio" v-bind:value="false" id="no" >
               
             </label>
           </span>

@@ -1,25 +1,16 @@
 <template>
 
-    <div class="container" v-bind:proudct="loadProduct()">
+    <div class="container" : >
       
+      {{products}}
      
      
      <div class="header"><h1> Title: {{product.title}}</h1> </div>
  
-        
-        
       <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-            
-
-            <ol class="carousel-indicators">
-              <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-              <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-              <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-            </ol>
-
             <div class="carousel-inner">
               <div class="carousel-item active">
-                <img :src="require('@/assets/'+products[counter].imgFile)" class="d-block w-100" alt="b">
+                <img :src="require('@/assets/'+product.imgFile)" class="d-block w-100" alt="b">
                 </div>
               
 
@@ -32,13 +23,14 @@
               <span class="carousel-control-next-icon" aria-hidden="true"></span>
               <span class="sr-only">Next</span>
             </a>
-           
+            
             
           </div>
-        <div class="footer"> <h1>footer</h1>:${{product.price}}</div>
-        
+       
       </div>
-
+      <div class="footer"> <h1>ProuView-footer</h1>:${{product.price}}</div>
+      <div class="cart">CART</div>
+      <div class="button"><button @click="addToCart(product)">KÖP</button></div>
   </div>
   
       
@@ -46,7 +38,10 @@
 
 <script>
 
+
+
 import {mapState} from 'vuex';
+
 
 
 export default {
@@ -57,6 +52,7 @@ export default {
     return{
       counter: 0,
       product: {},
+      temp: [],
 
       maxNr:0,
       
@@ -66,14 +62,16 @@ export default {
 
   computed:{
    ... mapState(['products']),
-   
 
   },
   
   methods: {
     loadProduct(){
-      this.product = this.products[0];
-      
+      let products = this.$store.dispatch('loadProducts');
+      this.product = products[0];
+
+      return this.product;
+    
     },
     getPrev(){
       
@@ -93,12 +91,36 @@ export default {
       console.log(this.product.imgFile);
       
     },
-  },
 
-   created() {
-    this.$store.dispatch('loadProducts');
+    addToCart(event){
+      console.log(event);
+      this.$store.dispatch('addItem', this.product); 
+      this.loadItems();
 
     },
+
+
+    async loadItems(){
+
+      console.log("calloing");
+      let result = await this.$store.dispatch('loadProducts');
+      console.log("Async: ", result);
+    }
+
+
+
+  },
+
+  
+   created() {
+    //  this.$store.dispatch('loadProducts');
+
+    },
+
+  mounted(){
+    this.loadItems();
+
+  }
 
   
     
@@ -133,12 +155,12 @@ export default {
     border: 1px solid black;
     display: grid;
     grid-template-columns: 4fr 2fr;
-    grid-template-rows: .5fr 3fr 1fr;
+    grid-template-rows: .5fr 3fr .5fr;
     gap: 10px;
     grid-template-areas: 
       " header     shoppingChart "
        "carousel   carousel"
-        "footer    footer";
+        "footer    button";
   }
 
   .shoppingChart{
@@ -149,6 +171,10 @@ export default {
     justify-self: end;
   }
 
+  .buy-button{
+    grid-area: button;
+    background-color: #fff;
+  }
 
   .header{
     grid-area:header;
@@ -181,7 +207,7 @@ export default {
   .footer{
     grid-area: footer;
     height: fit-content;
-    border: 4px solid green;
+    border: 8px solid green;
   }
 
   .img{

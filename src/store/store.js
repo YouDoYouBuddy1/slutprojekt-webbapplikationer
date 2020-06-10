@@ -2,6 +2,7 @@ import Vue from "vue"
 import Vuex from "vuex"
 import Api from "@/api/api.js"
 import User from "@/api/user.js"
+import Cart from "./modules/cart/cart.js"
 
 Vue.use(Vuex);
 
@@ -54,7 +55,11 @@ export default new Vuex.Store({
         },
 
     },
-    getters: {},
+    getters: {
+      
+    },
 
-    modules: {},
+    modules: {
+      Cart,
+    },
 });
