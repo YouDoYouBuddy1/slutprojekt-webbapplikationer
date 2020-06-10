@@ -3,7 +3,6 @@ import VueRouter from 'vue-router'
 import AdminArea from '../views/AdminArea.vue'
 import Checkout from '../views/Checkout.vue'
 import MyAccount from '../views/MyAccount.vue'
-import ProductList from '../views/ProductList.vue'
 import Registration from '../views/Registration.vue'
 import Login from '../views/Login.vue'
 
@@ -24,11 +23,6 @@ Vue.use(VueRouter)
     path: '/MyAccount',
     name: 'MyAccount',
     component: MyAccount
-  },
-  {
-    path: '/ProductList',
-    name: 'ProductList',
-    component: ProductList
   },
   {
     path: '/Registration',
