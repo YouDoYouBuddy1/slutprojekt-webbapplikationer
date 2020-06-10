@@ -3,10 +3,16 @@ import VueRouter from 'vue-router'
 import AdminArea from '../views/AdminArea.vue'
 import Checkout from '../views/Checkout.vue'
 import MyAccount from '../views/MyAccount.vue'
-import ProductList from '../views/ProductList.vue'
 import Registration from '../views/Registration.vue'
 import ApiTesting from '../views/ApiTesting.vue'
 import ApiCrudTesting from '../views/ApiCrudTesting.vue'
+// import StartPage from '../views/StartPage.vue'
+import FramePage from '../views/product/FramePage.vue'
+import ProductsTable from '../views/product/ProductsTable.vue'
+import Test from '../views/product/Test.vue'
+import ProductViewer from '../views/product/ProductViewer.vue'
+import Cart from '../views/cart/Cart.vue'
+
 
 Vue.use(VueRouter)
 
@@ -37,17 +43,36 @@ const routes = [
         component: MyAccount
     },
     {
-        path: '/ProductList',
-        name: 'ProductList',
-        component: ProductList
+        path: '/FramePage',
+        name: 'FramePage',
+        component: FramePage
     },
     {
         path: '/Registration',
         name: 'Registration',
         component: Registration
+    },
+    {
+        path: '/ProductViewer',
+        name: 'ProductViewer',
+        component: ProductViewer
+    },
+    {
+      path: '/ProductsTable',
+      name: 'ProductsTable',
+      component: ProductsTable,
+    },
+    {
+      path: '/Cart',
+      name: 'Cart',
+      component: Cart,
+    },
+    {
+      path: '/Test',
+      name: 'Test',
+      component: Test,
     }
 ]
-
 
 const router = new VueRouter({
     mode: 'history',

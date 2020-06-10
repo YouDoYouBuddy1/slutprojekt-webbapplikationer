@@ -1,0 +1,30 @@
+TODO:
+
+productViewer
+============
+Varför fel när man besöker product view för första gången 
+bild på köpkorg
+fixt storlek på vyn
+dropp-down för cart från productViewer
+navbar för kategorier
+som gör att man bara blädrar bland kattegorier
+sortera efter olika kategorier
+Skippa FramePage
+
+
+Cart
+==============
+Beställa order -- checkout
+koppla order med andvändar-id.
+ordna med att kunna lägga till/ta bort från raderna i Cart
+
+
+
+
+
+
+ProductsTable
+=============
+CRUD??
+Admin?
+
