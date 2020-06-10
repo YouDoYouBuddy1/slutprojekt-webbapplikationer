@@ -70,7 +70,12 @@ export default {
     button {
         margin-top: 3rem;
         padding: 1.5rem;
-        min-width: 20vw;
+        min-width: 15vw;
+
+        color: white;
+        background: black;
+        border-style: none;
+        border-radius: 4%;
     }
     .routerLink {
         min-width: 100%;

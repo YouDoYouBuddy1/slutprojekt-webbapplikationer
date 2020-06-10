@@ -1,5 +1,9 @@
 <template>
-    <div>
+    <div class = "body">
+        <router-link to="ProductList" class = "routerLink">
+            <button>To product page</button>
+        </router-link>
+
         <img src="@/assets/icon-user-black.svg" alt="">
         <h2>{{currentUser.name}}</h2>
         <p>{{currentUser.email}}</p>
@@ -26,14 +30,30 @@ export default {
 </script>
 
 <style scoped>
+    .body {
+        margin: 0 auto;
+    }
     h2 {
         margin: 0.5rem;
     }
     img {
-        max-width: 10vw;
+        max-width: 8vw;
         margin: 2rem;
     }
     p {
         margin: 0.5rem;
+    }
+    .routerLink {
+        position: absolute;
+        top: 3rem;
+        left: 3rem;
+    }
+    button {
+        padding: 1rem;
+        color: black;
+        background: white;
+        border-color: black;
+        border-style: solid;
+        border-radius: 4%;
     }
 </style>

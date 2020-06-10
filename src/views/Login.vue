@@ -48,5 +48,14 @@ export default {
     }
     .routerLink {
         margin-top: 3rem;
+        color: darkblue;
+    }
+    button {
+        padding: 0.5rem;
+        margin-top: 1rem;
+        background-color: black;
+        border: none;
+        border-radius: 10%;
+        color: whitesmoke;
     }
 </style>
