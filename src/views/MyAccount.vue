@@ -9,7 +9,7 @@
         v-for="(o, index) in currentUser.orderHistory"
         v-bind:key="index">
             <p>id: {{o._id}}</p>
-            <p v-text="'ordered on: ' + o.timeStamp"></p>
+            <p v-text="'ordered ' + Math.floor((Date.now() - o.timeStamp) / 3600000) + ' hours ago'"></p>
             <p>status: {{o.status}}</p>
         </div>
     </div>

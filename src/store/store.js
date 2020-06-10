@@ -9,7 +9,7 @@ export default new Vuex.Store({
   state: {
     user: {_id: '', email: '', password: '', name: '', role: 'anonymous',
     adress: {street: 'test street', zip: '123 45', city: 'test city'}, 
-    orderHistory: [{_id: 123, timeStamp: Date.now(), status: 'inProgress', items:[], orderValue: 999}]},
+    orderHistory: [{_id: 123, timeStamp: Date.parse('04 Dec 1995 00:12:00 GMT'), status: 'inProgress', items:[], orderValue: 999}]},
 
     token: ""
   },
