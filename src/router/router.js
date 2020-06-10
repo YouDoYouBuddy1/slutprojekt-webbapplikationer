@@ -5,6 +5,7 @@ import Checkout from '../views/Checkout.vue'
 import MyAccount from '../views/MyAccount.vue'
 import ProductList from '../views/ProductList.vue'
 import Registration from '../views/Registration.vue'
+import Login from '../views/Login.vue'
 
 Vue.use(VueRouter)
 
@@ -33,6 +34,11 @@ Vue.use(VueRouter)
     path: '/Registration',
     name: 'Registration',
     component: Registration
+  },
+  {
+    path: '/Login',
+    name: 'Login',
+    component: Login
   }
 ]
 

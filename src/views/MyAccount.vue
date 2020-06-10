@@ -9,7 +9,7 @@
         v-for="(o, index) in currentUser.orderHistory"
         v-bind:key="index">
             <p>id: {{o._id}}</p>
-            <p>ordered on: {{o.timeStamp}}</p>
+            <p v-text="'ordered on: ' + o.timeStamp"></p>
             <p>status: {{o.status}}</p>
         </div>
     </div>
@@ -18,12 +18,9 @@
 <script>
 export default {
     data: function(){return{
-        currentUser: this.$store.state.currentUser
+        currentUser: this.$store.state.user
     }},
     methods: {
-        formatTime(t) {
-            return t.getSeconds;
-        }
     }
 }
 </script>

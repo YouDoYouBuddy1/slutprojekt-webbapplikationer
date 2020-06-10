@@ -14,7 +14,7 @@
             <input type="text" placeholder="street" v-model="street">
             <input type="text" placeholder="zip code" v-model="zip">
             <input type="text" placeholder="city" v-model="city">
-            <router-link to="MyAccount" class = "routerLink">
+            <router-link to="Login" class = "routerLink">
                 <button v-on:click = "registerAccount">Register account</button>
             </router-link>
         </div>
@@ -34,8 +34,8 @@ export default {
     }},
     methods: {
         registerAccount() {
-            let newAccount = {name: this.name, email: this.email, password: this.password, street: this.street, zip: this.zip, city: this.city }
-            this.$store.dispatch("registerAccount", newAccount)
+            let newAccount = {_id: '', email: this.email, password: this.password,  repeatPassword: this.passwordRepeat, name: this.name, role: 'customer', address: {street: this.street, zip: this.zip, city: this.city}, orderHistory: [] }
+            this.$store.dispatch("register", newAccount)
         }
     }
 }
