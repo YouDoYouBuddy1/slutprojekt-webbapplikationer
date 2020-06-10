@@ -1,8 +1,8 @@
 <template>
 
-    <div class="container" :product="loadProduct">
-      {{product}}
-     <div class="header"><h1> Title: {{product.title}}</h1> </div>
+    <div class="container">
+      {{products[counter]}}
+     <div class="header"><h1> Title: {{products[counter].title}}</h1> </div>
  
       <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
@@ -25,9 +25,9 @@
           </div>
        
       </div>
-      <div class="footer"> <h1>ProuView-footer</h1>:${{product.price}}</div>
+      <div class="footer"> <h1>ProuView-footer</h1>:${{products[counter].price}}</div>
       <div class="cart">CART</div>
-      <div class="button"><button @click="addToCart(product)">KÖP</button></div>
+      <div class="button"><button @click="addToCart(products[counter])">KÖP</button></div>
   </div>
   
       
@@ -48,7 +48,6 @@ export default {
     
     return{
       counter: 0,
-      product: {},
       temp: [],
 
       maxNr:0,
