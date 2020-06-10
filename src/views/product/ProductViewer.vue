@@ -1,16 +1,13 @@
 <template>
 
-    <div class="container" : >
-      
-      {{products}}
-     
-     
+    <div class="container" :product="loadProduct">
+      {{product}}
      <div class="header"><h1> Title: {{product.title}}</h1> </div>
  
       <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
               <div class="carousel-item active">
-                <img :src="require('@/assets/'+product.imgFile)" class="d-block w-100" alt="b">
+                <img :src="require('@/assets/'+products[counter].imgFile)" class="d-block w-100" alt="b">
                 </div>
               
 
@@ -67,10 +64,10 @@ export default {
   
   methods: {
     loadProduct(){
-      let products = this.$store.dispatch('loadProducts');
-      this.product = products[0];
+      // let products = this.$store.dispatch('loadProducts');
+      // this.product = products[0];
 
-      return this.product;
+      return this.$store.dispatch('loadProducts');
     
     },
     getPrev(){
