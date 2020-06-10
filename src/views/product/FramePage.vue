@@ -1,13 +1,11 @@
 <template >
   
   <div class="frame-page">
-      <div class="logo-box">logo</div>
-      <div class="header">header</div>
-      <div class="sidemenu">
-        <div class="product-catogory"><h1>category 1</h1></div>
-        <div class="product-catogory"><h1>category 2</h1></div>
-        <div class="product-catogory"><h1>category 3</h1></div>
-        <div class="product-catogory"><h1>category 4</h1></div>
+      <div class="nav">
+        <router-link to="#">Category</router-link>  |
+        <router-link to=#> Category </router-link>  |
+        <router-link to="#" >Category</router-link> |
+       <hr>
       </div>
       <div class="viewer">
       <ProductViewer></ProductViewer>
@@ -62,7 +60,8 @@ time, mark, audio, video {
 	border: 0;
 	font-size: 100%;
 	font: inherit;
-	vertical-align: baseline;
+  vertical-align: baseline;
+  list-style: none;
 }
 
 
@@ -71,20 +70,12 @@ body{
   background-color: #ddd;
   
 }
-.header{
+.nav{
   border:1px solid green;
+  grid-area: nav;
+  width: inherit;
 }
-.sidemenu{
-  grid-area: sidemenu;
-  align-content: center;
-  border: 1px solid black;
-  display: grid;
 
-  grid-template-rows: 100px 100px 100px 100px;
-
-  grid-template-areas: "product-category-title";
-  
-}
 .product-category-title{
   height: fit-content;
   border: 1px solid red;
@@ -113,12 +104,12 @@ body{
   
 
   grid-template-columns: 200px 600px;
-  grid-template-rows: 100px auto 100px;
+  grid-template-rows: 70px auto 100px;
 
   grid-template-areas:
-      "logo-box  header header"
-      "sidemenu  item   ."
-      "sidemenu  footer .";
+      "nav      nav"
+      "item     item  "
+      "footer   footer   ";
       
 
 }

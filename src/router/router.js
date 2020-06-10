@@ -13,6 +13,12 @@ import FramePage from '../views/product/FramePage.vue'
 import ProductsTable from '../views/product/ProductsTable.vue'
 
 import Test from '../views/product/Test.vue';
+import Test from '../views/product/Test.vue'
+import FramePage from '../views/product/FramePage.vue'
+import ProductViewer from '../views/product/ProductViewer.vue'
+import ProductsTable from '../views/product/ProductsTable.vue'
+import Cart from '../views/cart/Cart.vue'
+
 
 Vue.use(VueRouter)
 
@@ -33,6 +39,7 @@ const routes = [
         component: AdminArea
     },
     {
+<<<<<<< HEAD
     path: '/AdminArea',
     name: 'AdminArea',
     component: AdminArea
@@ -72,6 +79,47 @@ const routes = [
     name: 'Test',
     component: Test
   }
+=======
+        path: '/Checkout',
+        name: 'Checkout',
+        component: Checkout
+    },
+    {
+        path: '/MyAccount',
+        name: 'MyAccount',
+        component: MyAccount
+    },
+    {
+        path: '/FramePage',
+        name: 'FramePage',
+        component: FramePage
+    },
+    {
+        path: '/Registration',
+        name: 'Registration',
+        component: Registration
+    },
+    {
+        path: '/ProductViewer',
+        name: 'ProductViewer',
+        component: ProductViewer
+    },
+    {
+      path: '/ProductsTable',
+      name: 'ProductsTable',
+      component: ProductsTable,
+    },
+    {
+      path: '/Cart',
+      name: 'Cart',
+      component: Cart,
+    },
+    {
+      path: '/Test',
+      name: 'Test',
+      component: Test,
+    }
+>>>>>>> 1b085868... pushar test
 ]
 
 
