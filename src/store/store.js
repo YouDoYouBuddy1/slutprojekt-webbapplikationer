@@ -41,12 +41,16 @@ export default new Vuex.Store({
         SAVE_ORDERS(state, orders) {
             state.orders = orders;
         },
+
+  //ta bort finns i Cart modulen
         SAVE_PRODUCT_TO_CART(state, product) {
             state.cart.push(product);
         }
     },
 
     actions: {
+
+      //Det här finns i Cart-modulen. ta bort.
         addToCart({commit}, product) {
             commit("SAVE_PRODUCT_TO_CART", product);
         },
