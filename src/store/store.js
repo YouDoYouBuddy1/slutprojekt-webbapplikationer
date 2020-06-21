@@ -50,7 +50,7 @@ export default new Vuex.Store({
 
     actions: {
 
-      //Det här finns i Cart-modulen. ta bort.
+      //Det här finns i Cart-modulen. Tar bort härifrån.
         addToCart({commit}, product) {
             commit("SAVE_PRODUCT_TO_CART", product);
         },
@@ -142,6 +142,7 @@ export default new Vuex.Store({
             console.log(sum);
             return sum;
         },
+        productItems: state => state.products
         
         // {
         //     let cost = state.cart.map(price).reduce(sum);
