@@ -3,7 +3,7 @@
     <h1>App</h1>
     <div id="nav">
       <router-link to="/">Home</router-link> |
-      <router-link to=/FramePage>Products</router-link> |
+      <router-link to=/products>Products</router-link> |
       <router-link to="/ProductsTable">ProductsTable</router-link> |
       <router-link to="/ProductViewer">ProdctViewer</router-link> |
       <router-link to="/Cart">Cart</router-link> |

@@ -6,6 +6,12 @@ import MyAccount from '../views/MyAccount.vue'
 import Registration from '../views/Registration.vue'
 import Login from '../views/Login.vue'
 
+
+import ProductList from '../views/product/ProductList.vue'
+import ProductItem from '../views/product/ProductItem.vue'
+import ProductViewer from '../views/product/ProductViewer.vue'
+import Cart from '../views/cart/Cart.vue';
+
 Vue.use(VueRouter)
 
   const routes = [
@@ -33,7 +39,33 @@ Vue.use(VueRouter)
     path: '/Login',
     name: 'Login',
     component: Login
+  },
+
+
+  //Lagt till av Ivan efter branchat från develop efter merge
+  {
+    path: '/ProductViewer',
+    name: 'ProductViewer',
+    component: ProductViewer,
+  },
+  {
+    path: '/Cart',
+    name: 'Cart',
+    component: Cart,
+  },
+  {
+    path: '/products',
+    name: 'product-list',
+    component: ProductList
+  },
+  {
+    path: '/products/:id',
+    component: ProductItem,
+    props: true
   }
+
+
+
 ]
 
 const router = new VueRouter({

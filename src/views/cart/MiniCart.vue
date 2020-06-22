@@ -65,14 +65,15 @@ export default {
 <style>
 
 .mini-cart{
-    padding: 4px;
-    border:  1px solid;
-    height:  120px;
-    width:   200px;
+    padding: 5px;
+    
+    
     display: grid;
     grid-template-columns: repeat(2, 2fr);
     grid-template-rows: repeat(3,3fr);
     font-size: 85%;
+    box-shadow: 1px 1px;
+    border-radius: 10%;
   }
   
 </style>

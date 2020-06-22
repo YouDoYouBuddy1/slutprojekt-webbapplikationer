@@ -1,29 +1,31 @@
 <template>
 
-  <div>
-    
-    <table>
+  <div class="container">
+    <table class="table">
+      
       <tr class="table-header" >
         
-        <td>#</td>
+        <td>#</td> 
         <td>Title</td>
         <td>Price</td>
         <td>Quantity</td>
         <td>sum</td>
+        
       </tr>
+      
+      
       <tr>
       <tr  v-for="(item, n) in order.items" :key="n">  
         <td>{{n+1}}</td>
         <td>{{item}}</td>
 
       </tr>
-
     </table>
     <hr>
     <div>
-      <button @click="addToCart">KÖÖP</button>
+      <button @click="listProducts">KÖP</button>
       <hr>
-      <button @click="remove">Ta bort</button>
+      
     </div>
     
   </div>
@@ -40,53 +42,41 @@ export default {
       
       order: {},
       cart: {},
-      
       productsInCart:[],
       temp: '',
       n: 0,
-      
-      
     }
   },
 
   methods:{
-    selectRow(event){
-      // console.log("select row", this.cartItems[event]);
-      console.log(event);
-    },
+
+   findProducts(){
+     console.log("Temp: ",this.productsInCart);
+     this.productsInCart.forEach(item => {
+       console.log("forEach: ", item);
+     })
+   },
+
+    listProducts(){
+      let items = this.$store.state.Cart.currentOrder.items;
+      if(items){
+        console.log("true)");
+        this.productsInCart = this.$store.state.Cart.currentOrder.items;
+        console.log("prods: ", this.productsInCart);
+        //TODO hämta produktinfo och lista det i korgen
+       
+      }
+      else{
+        console.log("false");
+      }
+    }
+   },
+
+   put($x){
+     console.log("puttar: ",$x);
+   },
 
 
-
-    
-    addToCart(){
-      let order = this.$store.state.Cart.currentOrder;
-      let prod = this.$store.state;
-      console.log("state: ", prod);
-      console.log(order);
-      console.log("User: ", this.currentUser);
-      this.showProducts();
-      
-
-    },
-
-
-    showProducts() {
-      console.log(this.$store.state.products);
-    },
-
-
-
-    remove(event){
-      //TODO: ändra i Store
-      // console.log(this.cartItems[event])
-      this.$store.dispatch('addItem', event);
-      // this.$store.dispatch('addItem', this.cartItems[event]);
-    },
-    
-    
-    
-  
-  },
 
   watch:{
 
@@ -94,26 +84,35 @@ export default {
 
   computed:{
     ... mapState(['Cart']),
-  
     
-    
+
+
   },
+
   created(){
+    
     this.order = this.$store.state.Cart.currentOrder;
     this.currentUser = this.$store.state.user;
-    
   },
-  components:{
 
-  }
-
+  components:{}
 }
 
 </script>
-<style >
-  table{
-    margin-left:100px;
+<style scoped>
+
+
+.table{
+    border: 1px solid black;
+    
   }
+
+
+.table-header{
+  background-color: green;
+
+}
+  
 
   .mini-cart{
     border: 1px solid black;

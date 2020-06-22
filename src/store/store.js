@@ -15,12 +15,9 @@ export default new Vuex.Store({
         user: [],
         token: "",
         orders: [],
-        cart: [{"title":"Hoodie","price":699,"shortDesc":"Fire unisex","category":"clothes","longDesc":"Skate ipsum dolor sit amet, 50-50 Sidewalk Surfer nose bump kickflip bruised heel fakie berm soul skate. Bluntslide transition nollie hard flip bank pressure flip ho-ho. Steps rip grip nosepicker roll-in yeah 540 pump. ","imgFile":"hoodie-fire.png","serial":"9919312731273772","_id":"2INrlDFVi4HGnKS4"},
-        {"title":"Awesome","price":799,"shortDesc":"Unisex","category":"board","longDesc":"Axle crailtap fastplant dude regular footed helipop impossible. Wax Jimmy'Z half-flip transfer nollie launch ramp mongo egg plant. Pogo slap maxwell g-turn boneless risers blunt nose slide.","imgFile":"skateboard-generic.png","serial":"2384993841228443","_id":"4R1qup39Yo6x93Xo"},
-        {"title":"Spinner","price":249,"shortDesc":"Soft","category":"wheels","longDesc":"Skate ipsum dolor sit amet, 50-50 Sidewalk Surfer nose bump kickflip bruised heel fakie berm soul skate. Bluntslide transition nollie hard flip bank pressure flip ho-ho. Steps rip grip nosepicker roll-in yeah 540 pump. ","imgFile":"wheel-spinner.png","serial":"239491299929222","_id":"50bA3kqmfVMpyRdB"},
-        {"title":"Hiphop","price":799,"shortDesc":"Unisex","category":"board","longDesc":"Skate ipsum dolor sit amet, 50-50 Sidewalk Surfer nose bump kickflip bruised heel fakie berm soul skate. Bluntslide transition nollie hard flip bank pressure flip ho-ho. Steps rip grip nosepicker roll-in yeah 540 pump. ","imgFile":"skateboard-generic.png","serial":"2834982384832822","_id":"A8kHboBk4fSQFPoZ"}
-        ]
+        cart: []
     },
+    
     mutations: {
         SAVE_USER(state, user) {
             state.user = user;
@@ -41,12 +38,16 @@ export default new Vuex.Store({
         SAVE_ORDERS(state, orders) {
             state.orders = orders;
         },
+
+  //ta bort finns i Cart modulen
         SAVE_PRODUCT_TO_CART(state, product) {
             state.cart.push(product);
         }
     },
 
     actions: {
+
+      //Det här finns i Cart-modulen. Tar bort härifrån.
         addToCart({commit}, product) {
             commit("SAVE_PRODUCT_TO_CART", product);
         },
@@ -138,7 +139,10 @@ export default new Vuex.Store({
             console.log(sum);
             return sum;
         },
-        
+        productItems: state => state.products,
+        productItemFromId: (state) => (id) => {
+          return state.products.find(product => product._id == id);
+        }
         // {
         //     let cost = state.cart.map(price).reduce(sum);
         //     console.log(cost)

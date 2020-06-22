@@ -1,33 +1,46 @@
 <template>
 
     <div class="container" :product="loadProduct">
+     <div class="shopping-box"><MiniCart/>
+     <div class="button"><button @click="addToCart(products[counter])">KÖP</button></div>
+     </div>
       
-     <div class="header"><h1> Title: {{products[0].title}}</h1> </div>
- 
       <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
               <div class="carousel-item active">
+                <div class="header"><h1> Title: {{products[counter].title}}</h1> </div>
+                
+
                 <img :src="require('@/assets/'+products[counter].imgFile)" class="d-block w-100" alt="b">
                 </div>
-              
+                
 
             <a class="carousel-control-prev" @click="getPrev" role="button" data-slide="prev">
               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
               <span class="sr-only">Previous</span>
+              
             </a>
-
+                          
             <a class="carousel-control-next" @click="getNext" role="button" data-slide="next">
               <span class="carousel-control-next-icon" aria-hidden="true"></span>
               <span class="sr-only">Next</span>
-            </a>
-            
+              <hr>
+              
+            </a>  
             
           </div>
-       
+          <h1 class="footer">{{products[counter].price}} kr </h1>      
+          
+      
+
       </div>
-      <div class="footer"> <h1>ProuView-footer</h1>:${{products[counter].price}}</div>
-      <div class="cart"><MiniCart/></div>
-      <div class="button"><button @click="addToCart(products[counter])">KÖP</button></div>
+      
+      <hr>
+      
+
+      
+      
+      
   </div>
   
       
@@ -62,13 +75,19 @@ export default {
     // products(){
     //   return this.$store.state.products;
     // }
+    getCollection( ){
+      return this.$store.state.products;
+       
+    }
   },
   
   methods: {
     loadProduct(){
-      let products = this.$store.dispatch('loadProducts');
-      this.product = products[0];
-      console.log(products);
+      // let products = this.$store.dispatch('loadProducts');
+    
+      // this.product = products[0];
+
+
       return this.product;    
     },
 
@@ -98,13 +117,8 @@ export default {
       
 
     },
-
-
-
-
-
-
   },
+
   created(){
     this.$store.dispatch('loadProducts');
     this.collection = this.$store.state.products;
@@ -113,7 +127,7 @@ export default {
   },
 
   
-    mounted() {
+  mounted() {
     // ... mapState(['products'])
     // this.product = this.products
     // this.$store.dispatch('loadProducts');
@@ -122,9 +136,11 @@ export default {
     // console.log(this.$store.state.products);
     
     },
-    components:{
+  
+  components:{
       MiniCart,
-    }
+    },
+  
 
 
     
@@ -136,69 +152,57 @@ export default {
 }
 </script>
 <style scoped>
-  /* * {
-    padding:0;
-    margin:0;
-   border: 1px solid black; */
-  /* } */
-  body{
-    border: 1px solid black;
-    width: fit-content;
-    padding: 100px;
-  }
-  .container{
-    border-radius: 20px;
-    background-color: #eee;
-    border: none;
-    padding:10px;
-    border: 1px solid black;
-    display: grid;
-    grid-template-columns: 4fr 2fr;
-    grid-template-rows: .5fr 3fr .5fr;
-    gap: 10px;
-    grid-template-areas: 
-      " header     shoppingChart "
-       "carousel   carousel"
-        "footer    button";
-  }
-  .shoppingChart{
-    border: 1px solid red;
-    color: green;
-    width: 70px;
-    height: 40px;
-    justify-self: end;
-  }
-  .buy-button{
-    grid-area: button;
-    background-color: #fff;
-  }
-  .header{
-    grid-area:header;
-    border: 1px solid blue;
-  }
-  .carousel{
-    grid-area: carousel;
-    border: 1px solid black;
-  }  
-  img{
-    height: 322px;
-    width: 180px;
-  }
-  .carousel-indicators{
-    border: 1px solid red;
-  }
-  /* .carousel-item{
-    height: fit-content;
-    width: fit-content;
-  } */
-  .footer{
-    grid-area: footer;
-    height: fit-content;
-    border: 8px solid green;
-  }
-  .img{
-    color:red;
-  }
+.container{
+  position: static;
+  display: grid;
+  grid-template-columns: 1fr 4fr 1fr;
+  grid-template-rows: 5fr 1fr;
+  column-gap: 0px;
+  
+}
+
+.carousel{
+  
+  width: 70%;
+  margin-left: 25%;
+  
+}
+.carousel-control-next-icon{
+  
+  color-adjust: green;
+  
+}
+
+.sr-only{
+  border:1px solid;
+}
+.carousel-inner{
+  padding: 5%;
+  place-content: center;
+  
+  
+}
+.carousel-item{
+  position: static;
+  
+}
+
+img{
+  position: static;
+  
+}
+.shopping-box{
+  display:grid;
+  width: 150px;
+  height: 100px;
+  margin-left: 0%;
+  
+}
+
+
+
+
+
 
 
 </style>
