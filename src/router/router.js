@@ -7,7 +7,8 @@ import Registration from '../views/Registration.vue'
 import Login from '../views/Login.vue'
 
 
-
+import ProductList from '../views/product/ProductList.vue'
+import ProductItem from '../views/product/ProductItem.vue'
 import ProductViewer from '../views/product/ProductViewer.vue'
 import Cart from '../views/cart/Cart.vue';
 
@@ -51,6 +52,16 @@ Vue.use(VueRouter)
     path: '/Cart',
     name: 'Cart',
     component: Cart,
+  },
+  {
+    path: '/products',
+    name: 'product-list',
+    component: ProductList
+  },
+  {
+    path: '/products/:id',
+    component: ProductItem,
+    props: true
   }
 
 
