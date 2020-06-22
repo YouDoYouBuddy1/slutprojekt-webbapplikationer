@@ -2,6 +2,8 @@
 
 av Fabian, Ivan G och Oliver
 
+Vi använde oss av Scrum utan ett burndown chart eftersom vi alla var bekanta med det efter Air Bean projektet. Varja sprint var en dag lång och vi använde oss av Trello för att dela upp ansvaret för de olika delarna av projektet.
+
 ## Arbetssätt
 
 Samla era erfarenheter från Kanban, Scrum och diskussionerna av Modern Agile och kom överens i gruppen vilka delar och hur ni ska inkorporera detta i erat arbete. Dokumentera vad ni kommer överens om i README.md i erat repository.
